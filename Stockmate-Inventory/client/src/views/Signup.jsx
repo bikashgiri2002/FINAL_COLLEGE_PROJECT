@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
+import baseUrl from "../baseUrl";
 
 function Signup() {
   const [userdata, setUserData] = useState({
@@ -20,7 +21,7 @@ function Signup() {
     // e.preventDefault();
     console.log(userdata);
     try {
-      const res = await axios.post("http://localhost:4000/register", userdata);
+      const res = await axios.post(`${baseUrl}/register`, userdata);
       // console.log(res);
       setUserData({ name: "", email: "", password: "" });
       const user = res.data;
@@ -156,7 +157,7 @@ function Signup() {
               />
             </div>
             <button
-              onClick={() => signup()}
+              onClick={signup}
               className="w-full px-4 py-2 text-white font-medium bg-blue-600 hover:bg-blue-500 active:bg-blue-600 rounded-lg duration-150"
             >
               Create account
