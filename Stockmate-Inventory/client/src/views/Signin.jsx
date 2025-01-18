@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
+import baseUrl from "../baseUrl";
 
 function Signin() {
   const [userdata, setUserData] = useState({
@@ -16,10 +17,10 @@ function Signin() {
   const authLocal = useAuth();
 
   const signin = async (e) => {
-    // e.preventDefault();
-    // console.log(userdata);
+    e.preventDefault();
+    console.log(userdata);
     try {
-      const res = await axios.post("http://localhost:4000/signin", userdata);
+      const res = await axios.post(`${baseUrl}/signin`, userdata);
       // console.log(res);
       setUserData({ email: "", password: "" });
       const user = res.data;
@@ -31,7 +32,6 @@ function Signin() {
       alert("successful Signin");
     } catch (error) {
       alert(error.response.data.error);
-
       console.log(error);
     }
   };
