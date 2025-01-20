@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Select from "react-tailwindcss-select";
+import baseUrl from "../baseUrl";
 
 const AddPurchaseModal = ({ fetchProductss }) => {
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +18,7 @@ const AddPurchaseModal = ({ fetchProductss }) => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/products");
+      const res = await axios.get(`${baseUrl}/products`);
       setProductsData(res.data);
       // console.log(res.data);
     } catch (error) {
@@ -34,7 +35,7 @@ const AddPurchaseModal = ({ fetchProductss }) => {
     console.log(purchasesdata);
     try {
       const res = await axios.post(
-        "http://localhost:4000/purchase",
+        `${baseUrl}/purchase`,
         purchasesdata
       );
       console.log(res);

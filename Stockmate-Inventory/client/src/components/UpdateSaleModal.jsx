@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { Edit as EditIcon } from "@mui/icons-material";
 import axios from "axios";
+import baseUrl from "../baseUrl";
 
 const style = {
   position: 'absolute',
@@ -53,7 +54,7 @@ export default function UpdateSaleModal({
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:4000/sales/${sale._id}`, formData);
+      await axios.put(`${baseUrl}/sales/${sale._id}`, formData);
       fetchSales();
       onClose();
     } catch (error) {

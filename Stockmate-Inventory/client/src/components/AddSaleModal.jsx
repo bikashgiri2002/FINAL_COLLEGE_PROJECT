@@ -2,6 +2,7 @@ import React, { useState, Fragment, useEffect } from "react";
 import axios from "axios";
 import Select from "react-tailwindcss-select";
 import MultiSelectMenu from "./MultiSelectMenu";
+import baseUrl from "../baseUrl";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -27,7 +28,7 @@ const AddSaleModal = ({ storesData, productsData, fetchSales }) => {
     e.preventDefault();
     console.log(salesdata);
     try {
-      const res = await axios.post("http://localhost:4000/sales", salesdata);
+      const res = await axios.post(`${baseUrl}/sales`, salesdata);
       // console.log(res);
       setShowModal(false);
       setSalesData({

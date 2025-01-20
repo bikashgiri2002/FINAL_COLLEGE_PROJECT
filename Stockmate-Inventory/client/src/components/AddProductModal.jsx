@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import baseUrl from "../baseUrl";
 
 const AddProductModal = ({ fetchProducts }) => {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +15,7 @@ const AddProductModal = ({ fetchProducts }) => {
     console.log(productsdata);
     try {
       const res = await axios.post(
-        "http://localhost:4000/products",
+        `${baseUrl}/products`,
         productsdata
       );
       console.log(res);
