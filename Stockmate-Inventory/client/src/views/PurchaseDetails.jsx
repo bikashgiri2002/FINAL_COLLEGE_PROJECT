@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import AddProductModal from "../components/AddProductModal";
-import UpdateProductModal from "../components/UpdateProductModal";
 import AddPurchaseModal from "../components/AddPurchaseModal";
 import UpdatePurchaseModal from "../components/UpdatePurchaseModal";
 import { Button } from "@mui/material";
+import baseUrl from "../baseUrl";
 
 export default function PurchaseDetails(params) {
   const [productsData, setProductsData] = useState([]);
@@ -17,7 +16,7 @@ export default function PurchaseDetails(params) {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/purchase");
+      const res = await axios.get(`${baseUrl}/purchase`);
       setProductsData(res.data);
     } catch (error) {
       console.log("ERROR", error);
@@ -26,7 +25,7 @@ export default function PurchaseDetails(params) {
 
   const deleteProducts = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/purchase/${id}`);
+      await axios.delete(`${baseUrl}/purchase/${id}`);
       fetchProducts();
     } catch (error) {
       console.log(error);

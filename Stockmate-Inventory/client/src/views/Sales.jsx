@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AddSaleModal from "../components/AddSaleModal";
 import UpdateSaleModal from "../components/UpdateSaleModal";
+import baseUrl from "../baseUrl";
 
 export default function Sales() {
   const [salesData, setSalesData] = useState([]);
@@ -18,7 +20,7 @@ export default function Sales() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/products");
+      const res = await axios.get(`${baseUrl}/products`);
       setProductsData(res.data);
     } catch (error) {
       console.log("ERROR", error);
@@ -27,7 +29,7 @@ export default function Sales() {
 
   const fetchSales = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/sales");
+      const res = await axios.get(`${baseUrl}/sales`);
       setSalesData(res.data);
       console.log(res?.data)
     } catch (error) {
@@ -37,7 +39,7 @@ export default function Sales() {
 
   const fetchStores = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/stores");
+      const res = await axios.get(`${baseUrl}/stores`);
       setStoresData(res?.data);
     } catch (error) {
       console.log("ERROR", error);
@@ -46,7 +48,7 @@ export default function Sales() {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/sales/${id}`);
+      await axios.delete(`${baseUrl}/sales/${id}`);
       fetchSales();
     } catch (error) {
       console.log(error);

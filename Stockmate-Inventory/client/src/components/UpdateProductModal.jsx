@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import baseUrl from "../baseUrl";
 
 const UpdateProductModal = ({ pid, pname, pstock, pmanufacturer, fetchProducts }) => {
   const [showModal, setShowModal] = useState(false);
@@ -15,7 +16,7 @@ const UpdateProductModal = ({ pid, pname, pstock, pmanufacturer, fetchProducts }
     e.preventDefault(e);
     console.log(pid);
     try {
-      const res = await axios.patch(`http://localhost:4000/products/${pid}`, {
+      const res = await axios.patch(`${baseUrl}/products/${pid}`, {
         name,
         manufacturer,
         stock,

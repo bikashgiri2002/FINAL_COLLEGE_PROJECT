@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import baseUrl from "../baseUrl";
 
 const AddStore = ({ fetchStores }) => {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +15,7 @@ const AddStore = ({ fetchStores }) => {
     e.preventDefault();
     console.log(storesdata);
     try {
-      const res = await axios.post("http://localhost:4000/stores", storesdata);
+      const res = await axios.post(`${baseUrl}/stores`, storesdata);
       console.log(res);
       setShowModal(false);
       setStoresData({ name: "", address: "", cost: "", sell: "" });

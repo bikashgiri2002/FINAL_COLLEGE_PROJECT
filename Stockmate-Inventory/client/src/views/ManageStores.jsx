@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import AddStore from "../components/AddStore";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Typography } from '@mui/material';
+import baseUrl from "../baseUrl";
 
 
 export default function ManageStores() {
@@ -16,7 +17,7 @@ export default function ManageStores() {
 
   const fetchStores = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/stores");
+      const res = await axios.get(`${baseUrl}/stores`);
       setStoresData(res.data);
     } catch (error) {
       console.log("ERROR", error);

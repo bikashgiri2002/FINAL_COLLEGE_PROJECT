@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AddProductModal from "../components/AddProductModal";
 import UpdateProductModal from "../components/UpdateProductModal";
+import baseUrl from "../baseUrl";
 
 export default function Inventory(params) {
   const [productsData, setProductsData] = useState([]);
@@ -18,7 +19,7 @@ export default function Inventory(params) {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/products");
+      const res = await axios.get(`${baseUrl}/products`);
       setProductsData(res.data);
       // console.log(res.data);
     } catch (error) {
@@ -30,7 +31,7 @@ export default function Inventory(params) {
     console.log(id);
     try {
       const response = await axios.delete(
-        `http://localhost:4000/products/${id}`
+        `${baseUrl}/products/${id}`
       );
       fetchProducts();
       console.log(response);

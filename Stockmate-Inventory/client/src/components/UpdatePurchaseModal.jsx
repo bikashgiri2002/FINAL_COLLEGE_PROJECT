@@ -7,6 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import axios from "axios";
+import baseUrl from "../baseUrl";
 
 const UpdatePurchaseModal = ({ isOpen, onClose, purchase, fetchProducts }) => {
   const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ const UpdatePurchaseModal = ({ isOpen, onClose, purchase, fetchProducts }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:4000/purchase/${purchase._id}`, formData);
+      await axios.put(`${baseUrl}/purchase/${purchase._id}`, formData);
       fetchProducts();
       onClose();
     } catch (error) {
