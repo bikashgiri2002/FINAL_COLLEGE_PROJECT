@@ -1,10 +1,14 @@
 import "./App.css";
-import Theme from "./components/Theme";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
   return (
     <>
-    <Theme />
+      <ThemeToggle />
+      <Register />
+      <Login />
     </>
   );
 }
