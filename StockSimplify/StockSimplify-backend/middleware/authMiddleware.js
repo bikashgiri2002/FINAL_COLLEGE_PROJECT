@@ -1,4 +1,3 @@
-// middleware/authMiddleware.js
 const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
@@ -8,9 +7,9 @@ const authMiddleware = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, 'secretKey');
+        const decoded = jwt.verify(token, process.env.SECRET_KEY || 'secretKey');
         req.user = decoded; // Attach decoded token to req.user
-        next();
+        next(); // Proceed to the next middleware or route handler
     } catch (error) {
         res.status(401).json({ message: 'Invalid token' });
     }
