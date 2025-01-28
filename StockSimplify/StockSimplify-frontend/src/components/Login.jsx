@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
   const apiUrl = import.meta.env.VITE_API_URL;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -8,9 +10,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = { email, password };
-    console.log(user);
 
-    // Send user data to the backend (Replace the URL with your actual endpoint)
+    // Send user data to the backend
     const response = await fetch(`${apiUrl}/auth/login`, {
       method: 'POST',
       headers: {
@@ -20,6 +21,8 @@ const Login = () => {
     });
 
     if (response.ok) {
+      const data = await response.json();
+      login(data.token); // Save user data to AuthContext
       console.log('Login successful');
       // Handle successful login (e.g., redirect to dashboard)
     } else {
