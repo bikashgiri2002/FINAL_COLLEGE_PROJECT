@@ -1,5 +1,6 @@
 const express = require("express");
 require('dotenv').config();
+const cors = require('cors');
 
 // create express app
 const app = express();
@@ -15,6 +16,9 @@ const inventoryRoutes = require('./routes/inventoryRoutes');
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+// Middleware to enable CORS for all origins
+app.use(cors());
 
 // Use Routes
 app.use('/api/auth', authRoutes);
