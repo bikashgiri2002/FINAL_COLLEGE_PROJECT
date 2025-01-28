@@ -7,11 +7,13 @@ import Dashboard from './components/Dashboard';
 import AddNewProductForm from './components/AddNewProductForm';
 import Logout from './components/Logout';
 import Home from './components/Home';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
     <>
       <Home />
+      <Footer />
     </>
   );
 };
