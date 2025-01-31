@@ -13,6 +13,7 @@ const authRoutes = require('./routes/authRoutes');
 const shopRoutes = require('./routes/shopRoutes');
 const warehouseRoutes = require('./routes/warehouseRoutes');
 const inventoryRoutes = require('./routes/inventoryRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/shop', shopRoutes);
 app.use('/api/warehouse', warehouseRoutes);
 app.use('/api/inventory', inventoryRoutes);
+app.use('/api/products', productRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

@@ -9,3 +9,4 @@ router.put('/edit', authMiddleware, warehouseController.editWarehouseDetails);
 router.put('/assign-manager', authMiddleware, warehouseController.assignManager);
 
 module.exports = router;
+

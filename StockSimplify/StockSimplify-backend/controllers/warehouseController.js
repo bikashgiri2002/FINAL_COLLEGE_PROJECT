@@ -31,3 +31,4 @@ exports.assignManager = async (req, res) => {
         res.status(400).json({ message: 'Error assigning manager', error });
     }
 };
+
