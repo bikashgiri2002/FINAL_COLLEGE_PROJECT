@@ -25,13 +25,24 @@ const Welcome = () => {
           <h1 className="mt-6 text-xl text-black">
             Manage your stock, orders, and business growth with ease using our free inventory solution.
           </h1>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-2">
             <button
               onClick={handleLoginClick}
               className="px-[72px] py-4 bg-yellow-500 text-black rounded-md hover:bg-blue-400 text-lg mt-9"
             >
               Begin Exploring
             </button>
+          </div>
+          <div className="flex justify-center mt-13">
+            <img
+              src="/dashboard.jpg"
+              alt="Dashboard Preview"
+              style={{
+                maxWidth: '90%',
+                maxHeight:'120%'
+               
+              }}
+            />
           </div>
         </div>
       </div>

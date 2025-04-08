@@ -30,7 +30,7 @@ const Navbar = () => {
             to="/features"
             className={({ isActive }) =>
               `hover:text-blue-500 px-3 py-2 rounded-md ${
-                isActive ? "bg-blue-800" : ""
+                isActive ? "bg-blue-400" : ""
               }`
             }
           >
@@ -40,7 +40,7 @@ const Navbar = () => {
             to="/solutions"
             className={({ isActive }) =>
               `hover:text-blue-500 px-3 py-2 rounded-md ${
-                isActive ? "bg-blue-800" : ""
+                isActive ? "bg-blue-400" : ""
               }`
             }
           >
@@ -50,7 +50,7 @@ const Navbar = () => {
             to="/integrations"
             className={({ isActive }) =>
               `hover:text-blue-500 px-3 py-2 rounded-md ${
-                isActive ? "bg-blue-800" : ""
+                isActive ? "bg-blue-400" : ""
               }`
             }
           >
@@ -60,7 +60,7 @@ const Navbar = () => {
             to="/resources"
             className={({ isActive }) =>
               `hover:text-blue-500 px-3 py-2 rounded-md ${
-                isActive ? "bg-blue-800" : ""
+                isActive ? "bg-blue-400" : ""
               }`
             }
           >
@@ -75,7 +75,7 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 `hover:text-blue-500 px-3 py-2 rounded-md ${
-                  isActive ? "bg-blue-800" : ""
+                  isActive ? "bg-blue-400" : ""
                 }`
               }
             >
@@ -85,7 +85,7 @@ const Navbar = () => {
               to="/inventory"
               className={({ isActive }) =>
                 `hover:text-blue-500 px-3 py-2 rounded-md ${
-                  isActive ? "bg-blue-800" : ""
+                  isActive ? "bg-blue-400" : ""
                 }`
               }
             >
@@ -95,7 +95,7 @@ const Navbar = () => {
               to="/warehouses"
               className={({ isActive }) =>
                 `hover:text-blue-500 px-3 py-2 rounded-md ${
-                  isActive ? "bg-blue-800" : ""
+                  isActive ? "bg-blue-400" : ""
                 }`
               }
             >
