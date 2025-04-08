@@ -12,21 +12,69 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-600 text-white p-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="bg-[rgba(255, 255, 255, 0.8)] text-black p-2 shadow-md w-full overflow-x-auto sticky top-0 z-50">
+      <div className="flex justify-between items-center space-x-4">
         {/* Logo and Brand Name */}
-        <Link to="/" className="flex items-center space-x-2">
-          <img src="/stockmate_icon.png" alt="StockMate Logo" className="h-10 w-10" />
-          <span className="text-2xl font-bold">StockMate</span>
-        </Link>
+        <Link to="/" className="flex items-center space-x-4">
+          <img
+            src="/stockmate_icon.png"
+            alt="StockMate Logo"
+            className="h-18 w-18 rounded-full shadow-md bg-white"
+          />
+         <span className="text-3xl font-bold text-orange-400">StockMate</span>
+</Link>
 
-        {/* Navigation Links (Only for logged-in shops) */}
+        {/* Navigation Links */}
+        <div className="flex space-x-6 flex-wrap">
+          <NavLink
+            to="/features"
+            className={({ isActive }) =>
+              `hover:text-blue-500 px-3 py-2 rounded-md ${
+                isActive ? "bg-blue-800" : ""
+              }`
+            }
+          >
+            Features
+          </NavLink>
+          <NavLink
+            to="/solutions"
+            className={({ isActive }) =>
+              `hover:text-blue-500 px-3 py-2 rounded-md ${
+                isActive ? "bg-blue-800" : ""
+              }`
+            }
+          >
+            Solutions
+          </NavLink>
+          <NavLink
+            to="/integrations"
+            className={({ isActive }) =>
+              `hover:text-blue-500 px-3 py-2 rounded-md ${
+                isActive ? "bg-blue-800" : ""
+              }`
+            }
+          >
+            Integrations
+          </NavLink>
+          <NavLink
+            to="/resources"
+            className={({ isActive }) =>
+              `hover:text-blue-500 px-3 py-2 rounded-md ${
+                isActive ? "bg-blue-800" : ""
+              }`
+            }
+          >
+            Resources
+          </NavLink>
+        </div>
+
+        {/* Navigation Links for Logged-In Shops */}
         {shop && (
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 flex-wrap">
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `hover:text-gray-200 px-3 py-2 rounded-md ${
+                `hover:text-blue-500 px-3 py-2 rounded-md ${
                   isActive ? "bg-blue-800" : ""
                 }`
               }
@@ -36,7 +84,7 @@ const Navbar = () => {
             <NavLink
               to="/inventory"
               className={({ isActive }) =>
-                `hover:text-gray-200 px-3 py-2 rounded-md ${
+                `hover:text-blue-500 px-3 py-2 rounded-md ${
                   isActive ? "bg-blue-800" : ""
                 }`
               }
@@ -46,7 +94,7 @@ const Navbar = () => {
             <NavLink
               to="/warehouses"
               className={({ isActive }) =>
-                `hover:text-gray-200 px-3 py-2 rounded-md ${
+                `hover:text-blue-500 px-3 py-2 rounded-md ${
                   isActive ? "bg-blue-800" : ""
                 }`
               }
@@ -69,11 +117,11 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <div className="space-x-4">
+            <div className="flex space-x-4">
               <NavLink
                 to="/login"
                 className={({ isActive }) =>
-                  `bg-gray-200 text-blue-600 px-4 py-2 rounded-md ${
+                  `bg-blue-400 text-white px-4 py-2 rounded-md ${
                     isActive ? "bg-gray-400" : ""
                   }`
                 }
@@ -83,7 +131,7 @@ const Navbar = () => {
               <NavLink
                 to="/register"
                 className={({ isActive }) =>
-                  `bg-gray-200 text-blue-600 px-4 py-2 rounded-md ${
+                  `bg-blue-400 text-white px-4 py-2 rounded-md ${
                     isActive ? "bg-gray-400" : ""
                   }`
                 }

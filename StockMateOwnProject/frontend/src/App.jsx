@@ -7,18 +7,21 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Warehouses from "./pages/Warehouse";
 import Inventory from "./pages/Inventory";
+import Welcome from "./pages/Welcome"; // Import the Welcome page
 
 function App() {
   const { shop } = useContext(ShopContext);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 ">
       <Navbar />
-      <div className="container mx-auto p-4">
+      <div>
         <Routes>
-          <Route path="/" element={shop ? <Dashboard /> : <Navigate to="/login" />} />
+          {/* Show Welcome page first */}
+          <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={shop ? <Dashboard /> : <Navigate to="/login" />} />
           <Route path="/warehouses" element={shop ? <Warehouses /> : <Navigate to="/login" />} />
           <Route path="/inventory" element={shop ? <Inventory /> : <Navigate to="/login" />} />
         </Routes>
