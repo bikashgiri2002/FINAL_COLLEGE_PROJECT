@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[rgba(255, 255, 255, 0.8)] text-black p-2 shadow-md w-full overflow-x-auto sticky top-0 z-50">
+    <nav className="bg-[rgba(255, 255, 255, 0.8)] text-black p-2 shadow-md w-full overflow-x-auto ">
       <div className="flex justify-between items-center space-x-4">
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center space-x-4">

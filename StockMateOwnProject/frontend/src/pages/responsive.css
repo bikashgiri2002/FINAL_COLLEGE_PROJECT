@@ -1,0 +1,67 @@
+@media only screen and (max-width: 768px) {
+    /* Adjust font sizes for smaller screens */
+    h1 {
+      font-size: 1rem; /* Reduce size for mobile */
+      margin-top: 50px; /* Adjust spacing */
+    }
+  
+    h1 + h1 {
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+  
+    /* Make buttons responsive */
+    button {
+      padding: 10px 20px;
+      font-size: 0.875rem;
+      width: 100%; /* Stretch button for mobile */
+    }
+  
+    /* Responsive images */
+    img {
+      max-width: 100%; /* Fill container */
+      height: auto; /* Maintain aspect ratio */
+    }
+  
+    /* Adjust multi-location section */
+    .flex.justify-center.mt-80 {
+      flex-direction: column; /* Stack items vertically */
+      margin-top: 40px; /* Reduce spacing */
+    }
+  
+    .flex.justify-center.mt-80 img {
+      margin-bottom: 20px; /* Add spacing */
+    }
+  
+    .text-2xl {
+      font-size: 1rem; /* Reduce size for mobile */
+      margin-left: 0; /* Align text */
+    }
+  
+    .text-base {
+      font-size: 0.875rem; /* Adjust text for mobile */
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    /* Styles for tablets */
+    h1 {
+      font-size: 2.5rem; /* Slightly larger font */
+      margin-top: 80px;
+    }
+  
+    button {
+      padding: 15px 40px;
+      font-size: 1rem;
+    }
+  
+    .flex.justify-center.mt-80 {
+      flex-direction: row; /* Return to horizontal layout */
+      margin-top: 80px;
+    }
+  
+    img {
+      max-width: 90%; /* Keep images constrained */
+    }
+  }
+  

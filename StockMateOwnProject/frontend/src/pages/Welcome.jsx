@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+// import './responsive.css';
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -33,16 +34,36 @@ const Welcome = () => {
               Begin Exploring
             </button>
           </div>
-          <div className="flex justify-center mt-13">
+          <div className="flex justify-center mt-23">
             <img
               src="/dashboard.jpg"
               alt="Dashboard Preview"
               style={{
                 maxWidth: '90%',
-                maxHeight:'120%'
-               
+                maxHeight: '120%'
               }}
             />
+          </div>
+          <div className="flex justify-center mt-70 text-4xl font-bold text-orange-800">
+            Stockmate transforms inventory management into a seamless 
+            <br /> experience, combining efficiency with ease
+          </div>
+          <div className="flex justify-center mt-80 mr-50 ml-50">
+            <img  
+              src="/multi.jpg"
+              style={{
+                maxWidth: '30%',
+              }}
+            />  
+            <div className='text-2xl font-bold text-black ml-30'>
+              Multi-location management <br></br> 
+              <p className="text-base text-gray-600 mt-5">
+              Effortlessly manage inventory across multiple <br></br> locations 
+              with  Stockmate. 
+              Gain real-time <br></br>visibility, streamline stock transfers,<br></br>
+               and ensure accurate tracking at every site.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -50,4 +71,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default Welcome;  
