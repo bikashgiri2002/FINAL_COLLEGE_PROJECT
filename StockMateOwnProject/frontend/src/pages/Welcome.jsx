@@ -36,18 +36,18 @@ const Welcome = () => {
           </div>
           <div className="flex justify-center mt-28">
           <img
-  src="\dashboard.jpg"
-  alt="Dashboard Preview"
-  style={{
-    width: '1100px',
-    height: '550px'
-  }}
-/>
- </div>
+        src="/inventory-management.png"
+       alt="Dashboard Preview"
+        style={{
+        width: '1100px',
+        height: '590px'
+         }}
+        />
+       </div>
 
- <div className='flex justify-center mt-40'>
-<h1 className='text-4xl font-bold text-orange-800'>StockMate simplifies inventory management by offering tailored features that<br></br> streamline operations, enhance organization, and boost efficiency</h1>
-</div>
+       <div className='flex justify-center mt-40'>
+      <h1 className='text-4xl font-bold text-orange-800'>StockMate simplifies inventory management by offering tailored features that<br></br> streamline operations, enhance organization, and boost efficiency</h1>
+       </div>
           <div className="flex justify-center mt-80 mr-50 ml-50">
             <img  
               src="/multi.jpg"
