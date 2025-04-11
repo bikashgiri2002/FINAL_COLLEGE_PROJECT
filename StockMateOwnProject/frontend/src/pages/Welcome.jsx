@@ -34,20 +34,20 @@ const Welcome = () => {
               Begin Exploring
             </button>
           </div>
-          <div className="flex justify-center mt-23">
-            <img
-              src="/dashboard.jpg"
-              alt="Dashboard Preview"
-              style={{
-                maxWidth: '90%',
-                maxHeight: '120%'
-              }}
-            />
-          </div>
-          <div className="flex justify-center mt-70 text-4xl font-bold text-orange-800">
-            Stockmate transforms inventory management into a seamless 
-            <br /> experience, combining efficiency with ease
-          </div>
+          <div className="flex justify-center mt-28">
+          <img
+  src="\dashboard.jpg"
+  alt="Dashboard Preview"
+  style={{
+    width: '1100px',
+    height: '550px'
+  }}
+/>
+ </div>
+
+ <div className='flex justify-center mt-40'>
+<h1 className='text-4xl font-bold text-orange-800'>StockMate simplifies inventory management by offering tailored features that<br></br> streamline operations, enhance organization, and boost efficiency</h1>
+</div>
           <div className="flex justify-center mt-80 mr-50 ml-50">
             <img  
               src="/multi.jpg"
@@ -65,6 +65,22 @@ const Welcome = () => {
               </p>
             </div>
           </div>
+          <div className="flex justify-between items-center mt-80 mr-85 ">
+  <div className="text-2xl font-bold text-black ml-120">
+    <h2>Bundle Offerings</h2>
+    <p className="text-base text-gray-600 mt-5 ">
+      Grouping and bundling items can enhance sales<br />
+      by creating appealing deals and boosting customer value,<br />
+      while also streamlining management and reducing waste.
+    </p>
+  </div>
+  <img
+    src="/MARKET.png"
+    style={{
+      maxWidth: '30%',
+    }}
+  />
+</div>
         </div>
       </div>
     </div>
