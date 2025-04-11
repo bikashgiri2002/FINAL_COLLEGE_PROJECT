@@ -55,7 +55,7 @@ const Welcome = () => {
                 maxWidth: '30%',
               }}
             />  
-            <div className='text-2xl font-bold text-black ml-30'>
+            <div className='text-2xl font-bold text-black ml-30 mt-10'>
               Multi-location management <br></br> 
               <p className="text-base text-gray-600 mt-5">
               Effortlessly manage inventory across multiple <br></br> locations 
@@ -66,22 +66,70 @@ const Welcome = () => {
             </div>
           </div>
           <div className="flex justify-between items-center mt-80 mr-85 ">
-  <div className="text-2xl font-bold text-black ml-120">
-    <h2>Bundle Offerings</h2>
-    <p className="text-base text-gray-600 mt-5 ">
-      Grouping and bundling items can enhance sales<br />
-      by creating appealing deals and boosting customer value,<br />
-      while also streamlining management and reducing waste.
-    </p>
-  </div>
-  <img
-    src="/MARKET.png"
-    style={{
-      maxWidth: '30%',
-    }}
-  />
-</div>
+          <div className="text-2xl font-bold text-black ml-120">
+          <h2>Bundle Offerings</h2>
+         <p className="text-base text-gray-600 mt-5 ">
+          Grouping and bundling items can enhance sales<br />
+         by creating appealing deals and boosting customer value,<br />
+         while also streamlining management and reducing waste.
+         </p>
+       </div>
+        <img
+        src="/MARKET.png"
+       style={{
+         maxWidth: '30%',
+         }}
+        />
+  
+      </div>
+      <div className="flex justify-center mt-80 mr-50 ml-50">
+            <img  
+              src="/istockphoto.jpg"
+              style={{
+                maxWidth: '30%',
+              }}
+            />  
+            <div className='text-2xl font-bold text-black ml-40 mt-25'>
+            History Made Simple <br></br> 
+              <p className="text-base text-gray-600 mt-5">
+              Track your sales and purchase history effortlessly<br></br> with our intuitive system. 
+              Gain valuable insights <br></br> into transactions to optimize your business decisions <br></br> and grow smarter every day!
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-between items-center mt-80 mr-85 ">
+          <div className="text-2xl font-bold text-black ml-120">
+          <h2>Role-Based Access Control</h2>
+         <p className="text-base text-gray-600 mt-5 ">
+         Implement robust Role-Based Access Control to ensure <br></br> secure and efficient management of user permissions. <br></br>
+         Assign distinct roles like Admin, Manager, and  <br></br>Employee to streamline access and safeguard your operations.
+         </p>
+       </div>
+        <img
+        src="/Role-Based-Access-Control.jpeg"
+       style={{
+         maxWidth: '30%',
+         }}
+        />
+      </div>
+      <div className="flex justify-center mt-80 mr-50 ml-50">
+            <img  
+              src="/report.png"
+              style={{
+                maxWidth: '30%',
+              }}
+            />  
+            <div className='text-2xl font-bold text-black ml-30 mt-10'>
+            Reports & Analytics <br></br> 
+              <p className="text-base text-gray-600 mt-5">
+              Unlock powerful insights with comprehensive Reports & <br></br> Analytics tools. 
+              Analyze trends, track performance, and  <br></br>make data-driven decisions to propel your business forward.
+              </p>
+            </div>
+          </div>
         </div>
+        
+        
       </div>
     </div>
   );
