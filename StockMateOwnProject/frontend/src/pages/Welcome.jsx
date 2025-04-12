@@ -11,15 +11,15 @@ const FAQItem = ({ question, answer }) => {
   };
 
   return (
-    <div className="mb-4 border-b-1 pb-8">
+    <div className="mb-4 border-b-1 pb-4">
       <div
         className="flex justify-between items-center cursor-pointer"
         onClick={toggleOpen}
       >
-        <h2 className="font-bold text-xl text-blue-800">{question}</h2>
+        <h4 className="font-bold text-l text-gray-700">{question}</h4>
         <span className="text-gray-800 text-m">{isOpen ? '▲' : '▼'}</span>
       </div>
-      {isOpen && <p className="mt-2 text-black">{answer}</p>}
+      {isOpen && <p className="mt-2 text-gray-600">{answer}</p>}
     </div>
   );
 };
