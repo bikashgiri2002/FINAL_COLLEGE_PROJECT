@@ -221,7 +221,7 @@ const Welcome = () => {
        {/*Faq section*/ }
        <div className='flex justify-center mt-20 text-3xl font-bold'>
       Frequently Asked Questions </div>
-      <div className="mt-10 mx-140 text-left">
+      <div className="mt-10 mx-165 text-left">
             {faqData.map((item, index) => (
               <FAQItem
                 key={index}
