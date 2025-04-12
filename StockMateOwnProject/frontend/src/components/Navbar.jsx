@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logoutShop();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -19,60 +19,64 @@ const Navbar = () => {
           <img
             src="/stockmate_icon.png"
             alt="StockMate Logo"
-            className="h-18 w-18 rounded-full shadow-md bg-white"
+            className="h-18 w-18"
           />
-         <span className="text-3xl font-bold text-orange-400">StockMate</span>
-</Link>
+          <span className="text-3xl font-bold text-orange-400">StockMate</span>
+        </Link>
 
         {/* Navigation Links */}
-        <div className="flex space-x-6 flex-wrap">
-          <NavLink
-            to="/features"
-            className={({ isActive }) =>
-              `hover:text-blue-500 px-3 py-2 rounded-md ${
-                isActive ? "bg-blue-400" : ""
-              }`
-            }
-          >
-            Features
-          </NavLink>
-          <NavLink
-            to="/solutions"
-            className={({ isActive }) =>
-              `hover:text-blue-500 px-3 py-2 rounded-md ${
-                isActive ? "bg-blue-400" : ""
-              }`
-            }
-          >
-            Solutions
-          </NavLink>
-          <NavLink
-            to="/integrations"
-            className={({ isActive }) =>
-              `hover:text-blue-500 px-3 py-2 rounded-md ${
-                isActive ? "bg-blue-400" : ""
-              }`
-            }
-          >
-            Integrations
-          </NavLink>
-          <NavLink
-            to="/resources"
-            className={({ isActive }) =>
-              `hover:text-blue-500 px-3 py-2 rounded-md ${
-                isActive ? "bg-blue-400" : ""
-              }`
-            }
-          >
-            Resources
-          </NavLink>
-        </div>
+        {shop ? (
+          ""
+        ) : (
+          <div className="flex space-x-6 flex-wrap">
+            <NavLink
+              to="/features"
+              className={({ isActive }) =>
+                `hover:text-blue-500 px-3 py-2 rounded-md ${
+                  isActive ? "bg-blue-400" : ""
+                }`
+              }
+            >
+              Features
+            </NavLink>
+            <NavLink
+              to="/solutions"
+              className={({ isActive }) =>
+                `hover:text-blue-500 px-3 py-2 rounded-md ${
+                  isActive ? "bg-blue-400" : ""
+                }`
+              }
+            >
+              Solutions
+            </NavLink>
+            <NavLink
+              to="/integrations"
+              className={({ isActive }) =>
+                `hover:text-blue-500 px-3 py-2 rounded-md ${
+                  isActive ? "bg-blue-400" : ""
+                }`
+              }
+            >
+              Integrations
+            </NavLink>
+            <NavLink
+              to="/resources"
+              className={({ isActive }) =>
+                `hover:text-blue-500 px-3 py-2 rounded-md ${
+                  isActive ? "bg-blue-400" : ""
+                }`
+              }
+            >
+              Resources
+            </NavLink>
+          </div>
+        )}
 
         {/* Navigation Links for Logged-In Shops */}
         {shop && (
           <div className="flex space-x-6 flex-wrap">
             <NavLink
-              to="/"
+              to="/dashboard"
               className={({ isActive }) =>
                 `hover:text-blue-500 px-3 py-2 rounded-md ${
                   isActive ? "bg-blue-400" : ""

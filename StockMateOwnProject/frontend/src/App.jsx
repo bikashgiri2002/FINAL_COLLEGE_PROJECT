@@ -18,12 +18,21 @@ function App() {
       <div>
         <Routes>
           {/* Show Welcome page first */}
-          <Route path="/" element={<Welcome />} />
+          <Route path="/" element={shop ? <Dashboard /> : <Welcome />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={shop ? <Dashboard /> : <Navigate to="/login" />} />
-          <Route path="/warehouses" element={shop ? <Warehouses /> : <Navigate to="/login" />} />
-          <Route path="/inventory" element={shop ? <Inventory /> : <Navigate to="/login" />} />
+          <Route
+            path="/dashboard"
+            element={shop ? <Dashboard /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/warehouses"
+            element={shop ? <Warehouses /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/inventory"
+            element={shop ? <Inventory /> : <Navigate to="/" />}
+          />
         </Routes>
       </div>
     </div>

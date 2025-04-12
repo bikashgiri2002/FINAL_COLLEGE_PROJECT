@@ -14,7 +14,7 @@ const Login = () => {
     try {
       const response = await axios.post("http://localhost:5000/api/shop/login", { email, password });
       loginShop(response.data.shop, response.data.token);
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.error(error.response?.data?.message || "Login failed");
     }

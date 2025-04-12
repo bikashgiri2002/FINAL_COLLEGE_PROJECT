@@ -35,7 +35,7 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     logoutShop();
-    navigate("/login");
+    navigate("/");
   };
 
   const getInventoryForWarehouse = (warehouseId) => {
@@ -43,7 +43,11 @@ const Dashboard = () => {
   };
 
   if (loading) {
-    return <div className="h-screen flex items-center justify-center">Loading...</div>;
+    return (
+      <div className="h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
   }
 
   return (
