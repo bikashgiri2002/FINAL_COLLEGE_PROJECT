@@ -13,16 +13,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white text-black p-3 shadow-md w-full sticky top-0 z-50">
+    <nav className="bg-white text-black p-2 shadow-md w-full sticky top-0 z-50">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
           <img
             src="/stockmate_icon.png"
             alt="StockMate Logo"
-            className="h-12 w-12 rounded-full shadow-lg"
+            className="h-17 w-17 "
           />
-          <span className="text-2xl font-bold text-orange-500">StockMate</span>
+          <span className="text-3xl font-bold text-orange-500">StockMate</span>
         </Link>
 
         {/* Grid-Style Menu Icon for Mobile/Tablet */}
