@@ -86,7 +86,7 @@ const Welcome = () => {
           </div>
           <div className="flex justify-center mt-28">
             <img
-            className="rounded-2xl"
+              className="rounded-2xl"
               src="/dashboard.png"
               alt="Dashboard Preview"
               style={{
@@ -227,7 +227,6 @@ const Welcome = () => {
               style={{
                 maxWidth: "15%",
                 borderRadius: "100PX",
-                backgroundColor: "white",
               }}
             />
           </div>
