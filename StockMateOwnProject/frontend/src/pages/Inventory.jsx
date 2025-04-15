@@ -205,7 +205,7 @@ const Inventory = () => {
                   >
                     <div>
                       <strong>{item.productName}</strong> (SKU: {item.sku}) -{" "}
-                      {item.quantity} pcs - ${item.price}
+                      {item.quantity} pcs - ₹{item.price}
                     </div>
                     <div className="flex space-x-2">
                       <button

@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // ← Add Link
 import ShopContext from "../context/ShopContext";
 
 const Login = () => {
@@ -12,7 +12,10 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/shop/login", { email, password });
+      const response = await axios.post(
+        "http://localhost:5000/api/shop/login",
+        { email, password }
+      );
       loginShop(response.data.shop, response.data.token);
       navigate("/dashboard");
     } catch (error) {
@@ -43,10 +46,19 @@ const Login = () => {
         />
         <button
           type="submit"
-          className="w-full bg-blue-500 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 text-white p-2 rounded"
+          className="w-full bg-blue-500 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 text-white p-2 rounded mb-2"
         >
           Login
         </button>
+        <p className="text-sm text-center">
+          New here?{" "}
+          <Link
+            to="/register"
+            className="text-blue-500 hover:underline dark:text-blue-400"
+          >
+            Register
+          </Link>
+        </p>
       </form>
     </div>
   );
