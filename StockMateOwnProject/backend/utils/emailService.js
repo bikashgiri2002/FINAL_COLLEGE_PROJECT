@@ -42,7 +42,7 @@ export const sendPasswordResetEmail = async (to, name, resetURL) => {
       <p>We received a request to reset your password.</p>
       <p>Click the button below to reset it. This link will expire in 15 minutes:</p>
       <p><a href="${resetURL}" style="padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 4px;">Reset Password</a></p>
-      <p>If you didn’t request a password reset, you can ignore this email.</p>
+      <p>If you didn't request a password reset, you can ignore this email.</p>
       <p style="margin-top: 20px;">Best regards,<br>The StockMate Team</p>
     </div>
   `;
