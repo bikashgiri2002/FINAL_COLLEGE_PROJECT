@@ -1,35 +1,31 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import './responsive.css';
+import 'font-awesome/css/font-awesome.min.css';
+
 
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <div className="mb-4 border-b-1 pb-4">
-      <div
-        className="flex justify-between items-center cursor-pointer"
-        onClick={toggleOpen}
-      >
-
-        <h4 className="font-bold text-l text-gray-700">{question}</h4>
-        <span className="text-gray-800 text-m">{isOpen ? '▲' : '▼'}</span>
+    <div
+      className="mb-4 border-b pb-4 cursor-pointer"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <div className="flex justify-between items-center">
+        <h4 className="font-bold text-lg text-gray-700">{question}</h4>
+        <span className="text-gray-800">{isOpen ? "▲" : "▼"}</span>
       </div>
-      {isOpen && <p className="mt-2 text-gray-600">{answer}</p>}
+      {isOpen && (
+        <p className="mt-2 text-gray-600 break-words max-w-full">{answer}</p>
+      )}
     </div>
   );
 };
 
 const Welcome = () => {
   const navigate = useNavigate();
+  const handleLoginClick = () => navigate("/login");
 
-  const handleLoginClick = () => {
-    navigate("/login"); // Redirect to login page
-  };
   const faqData = [
     {
       question: "What is StockMate?",
@@ -59,208 +55,237 @@ const Welcome = () => {
   ];
 
   return (
-    <div>
-      {/* Content Section */}
-      <div
-  className="flex-grow flex justify-center"
-  style={{
-    background: "linear-gradient(to bottom, rgb(255, 216, 158), #FFF7E1)",
-    minHeight: "100vh", // Ensure full viewport height
-  }}
->
-  <div className="text-center px-4 sm:px-6 md:px-8">
-    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-[80px] sm:mt-[100px] md:mt-[160px] text-black">
-      Empowering Your Business with Intelligent <br />
-      Inventory Solutions
-    </h1>
-    <h2 className="mt-4 sm:mt-5 md:mt-6 text-lg sm:text-s md:text-l text-black">
-      Manage your stock, orders, and business growth with ease using our
-      free inventory solution.
-    </h2>
+    <div className="bg-gradient-to-b from-[#FFD89E] to-[#FFF7E1] min-h-screen">
+      <div className="container mx-auto px-4 py-10">
 
-    <div className="flex justify-center mt-4 sm:mt-5 md:mt-9">
-      <button
-        onClick={handleLoginClick}
-        className="px-8 py-4 bg-yellow-500 text-black rounded-md hover:bg-blue-400 text-lg sm:text-xl md:text-lg mt-6 sm:mt-8"
-      >
-        Begin Exploring
-      </button>
-    </div>
-
-    {/* Responsive Image */}
-    <div className="flex justify-center mt-12 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24">
-  <img
-    className="rounded-2xl w-full max-w-full sm:max-w-[600px] md:max-w-[1000px] lg:max-w-[1200px] h-auto"
-    src="/dashboard.png"
-    alt="Dashboard Preview"
-  />
-</div>
-
- 
-
-          <div className="flex justify-center mt-30 sm:px-6 md:px-8">
-            <h1 className="text-3xl sm:text-xl md:text-4xl  sm:mt-[90px] md:mt-[100px]  font-bold text-orange-800">
-              StockMate simplifies inventory management by offering tailored
-              features that<br></br> streamline operations, enhance
-              organization, and boost efficiency
-            </h1>
-          </div>
-          <div className="flex justify-center mt-80 mr-50 ml-50">
-            <img
-              src="/multi.jpg"
-              style={{
-                maxWidth: "30%",
-              }}
-            />
-            <div className="text-2xl font-bold text-black ml-30 mt-10">
-              Multi-location management <br></br>
-              <p className="text-base text-gray-600 mt-5">
-                Effortlessly manage inventory across multiple <br></br>{" "}
-                locations with Stockmate. Gain real-time <br></br>visibility,
-                streamline stock transfers,<br></br>
-                and ensure accurate tracking at every site.
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-between items-center mt-50 mr-85 ">
-            <div className="text-2xl font-bold text-black ml-120">
-              <h2>Bundle Offerings</h2>
-              <p className="text-base text-gray-600 mt-5 ">
-                Grouping and bundling items can enhance sales
-                <br />
-                by creating appealing deals and boosting customer value,
-                <br />
-                while also streamlining management and reducing waste.
-              </p>
-            </div>
-            <img
-              src="/MARKET.png"
-              style={{
-                maxWidth: "30%",
-              }}
-            />
-          </div>
-          <div className="flex justify-center mt-50 mr-50 ml-50">
-            <img
-              src="/istockphoto.jpg"
-              style={{
-                maxWidth: "30%",
-              }}
-            />
-            <div className="text-2xl font-bold text-black ml-40 mt-25">
-              History Made Simple <br></br>
-              <p className="text-base text-gray-600 mt-5">
-                Track your sales and purchase history effortlessly<br></br> with
-                our intuitive system. Gain valuable insights <br></br> into
-                transactions to optimize your business decisions <br></br> and
-                grow smarter every day!
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-between items-center mt-50 mr-85 ">
-            <div className="text-2xl font-bold text-black ml-120">
-              <h2>Role-Based Access Control</h2>
-              <p className="text-base text-gray-600 mt-5 ">
-                Implement robust Role-Based Access Control to ensure <br></br>{" "}
-                secure and efficient management of user permissions. <br></br>
-                Assign distinct roles like Admin, Manager, and <br></br>Employee
-                to streamline access and safeguard your operations.
-              </p>
-            </div>
-            <img
-              src="/Role-Based-Access-Control.jpeg"
-              style={{
-                maxWidth: "30%",
-              }}
-            />
-          </div>
-          <div className="flex justify-center mt-50 mr-50 ml-50">
-            <img
-              src="/report.png"
-              style={{
-                maxWidth: "30%",
-              }}
-            />
-            <div className="text-2xl font-bold text-black ml-30 mt-10">
-              Reports & Analytics <br></br>
-              <p className="text-base text-gray-600 mt-5">
-                Unlock powerful insights with comprehensive Reports & <br></br>{" "}
-                Analytics tools. Analyze trends, track performance, and{" "}
-                <br></br>make data-driven decisions to propel your business
-                forward.
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center mt-50 mr-50 ml-50">
-            <img
-              src="/alert.jpg"
-              style={{
-                maxWidth: "20%",
-                borderRadius: "100px",
-              }}
-            />{" "}
-          </div>
-          <div className="text-2xl font-bold text-black ml-10 mt-10">
-            Automated Alerts <br></br>
-            <p className="text-base text-gray-600 mt-5">
-              Automated alerts in StockMate inventory provide <br></br>real-time
-              notifications for stock levels, reorders, and <br></br>
-              discrepancies, ensuring efficient and accurate inventory
-              management
-            </p>
-          </div>
-          <div className="text-4xl font-bold text-yellow-700 ml-10 mt-50">
-            Our customers love using StockMate <br></br> inventory
-          </div>
-          <div className="text-xl  text-black ml-10 mt-10">
-            Amit Sharma, Owner of FreshMart Grocery Store
-          </div>
-          <div className="text-xl  text-black ml-10 mt-5">
-            "StockMate has been a game-changer for my grocery shop.<br></br>I
-            can now effortlessly display which products are in stock <br></br>{" "}
-            and which are out of stock, helping my customers make <br></br>{" "}
-            informed choices before they visit the store. It's an <br></br>
-            all-in-one platform that streamlines my daily <br></br> operations
-            and keeps my customers happy!"
-          </div>
-          <div className="text-xl  text-black ml-220 mt-10">
-            <img
-              src="/stockmate_icon.png"
-              style={{
-                maxWidth: "15%",
-                borderRadius: "100PX",
-              }}
-            />
-          </div>
-          <div className="text-3xl font-bold text-green-800 ml-10 mt-20">
-            Upgrade to an All-in-One Inventory Management Solution
-          </div>
-          <div className="flex justify-center mt-9">
+        {/* Hero Section */}
+        <div className="text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-20 text-black">
+            Empowering Your Business with Intelligent <br /> Inventory Solutions
+          </h1>
+          <h2 className="mt-6 text-lg sm:text-xl text-black">
+            Manage your stock, orders, and business growth with ease using our free inventory solution.
+          </h2>
+          <div className="mt-8">
             <button
               onClick={handleLoginClick}
-              className="px-[72px] py-4 bg-red-700 text-white rounded-md hover:bg-green-400 text-lg mt-9"
+              className="px-8 py-4 bg-yellow-500 text-black rounded-md hover:bg-blue-400 text-lg"
             >
-              Let's Check it!
+              Begin Exploring
             </button>
           </div>
+          <img
+            className="mt-12 mx-auto rounded-2xl w-full max-w-[1200px]"
+            src="/dashboard.png"
+            alt="Dashboard Preview"
+          />
+        </div>
+
+        {/* Tagline */}
+        <div className="text-center mt-50">
+          <h2 className="text-3xl md:text-3xl font-bold text-orange-800 break-words max-w-4xl mx-auto my-auto">
+            StockMate simplifies inventory management by offering tailored features that
+            streamline operations, enhance organization, and boost efficiency
+          </h2>
+        </div>
+
+        {/* Features */}
+        <div className="mt-50 space-y-20">
+          {/* Each Feature */}
+          {[
+            {
+              img: "/multi.jpg",
+              alt: "Multi Location",
+              title: "Multi-location management",
+              text:
+                "Effortlessly manage inventory across multiple locations with Stockmate. Gain real-time visibility, streamline stock transfers, and ensure accurate tracking at every site.",
+              imgLeft: true,
+            },
+            {
+              img: "/MARKET.png",
+              alt: "Market",
+              title: "Bundle Offerings",
+              text:
+                "Grouping and bundling items can enhance sales by creating appealing deals and boosting customer value, while also streamlining management and reducing waste.",
+              imgLeft: false,
+            },
+            {
+              img: "/istockphoto.jpg",
+              alt: "History",
+              title: "History Made Simple",
+              text:
+                "Track your sales and purchase history effortlessly with our intuitive system. Gain valuable insights into transactions to optimize your business decisions and grow smarter every day!",
+              imgLeft: true,
+            },
+            {
+              img: "/Role-Based-Access-Control.jpeg",
+              alt: "Role Based Access",
+              title: "Role-Based Access Control",
+              text:
+                "Implement robust Role-Based Access Control to ensure secure and efficient management of user permissions. Assign distinct roles like Admin, Manager, and Employee to streamline access and safeguard your operations.",
+              imgLeft: false,
+            },
+            {
+              img: "/report.png",
+              alt: "Reports",
+              title: "Reports & Analytics",
+              text:
+                "Unlock powerful insights with comprehensive Reports & Analytics tools. Analyze trends, track performance, and make data-driven decisions to propel your business forward.",
+              imgLeft: true,
+            },
+          ].map((feature, idx) => (
+            <div
+              key={idx}
+              className={`flex flex-col md:flex-row ${
+                feature.imgLeft ? "md:flex-row" : "md:flex-row-reverse"
+              } items-center gap-8`}
+            >
+              <img
+                src={feature.img}
+                className="w-full sm:w-3/4 md:w-2/3 lg:w-[40%] xl:w-[30%] rounded-xl"
+                alt={feature.alt}
+              />
+              <div className="text-black text-center md:text-left max-w-xl">
+                <h2 className="text-2xl font-bold">{feature.title}</h2>
+                <p className="text-base text-gray-600 mt-5 break-words">{feature.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Alerts */}
+        <div className="text-center mt-20">
+          <img
+            src="/alert.jpg"
+            className="w-40 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 object-cover mx-auto rounded-full"
+            alt="Alerts"
+          />
+          <h2 className="text-2xl font-bold text-black mt-8">Automated Alerts</h2>
+          <p className="text-base text-gray-600 mt-5 break-words max-w-2xl mx-auto">
+            Automated alerts in StockMate inventory provide real-time notifications for stock levels,
+            reorders, and discrepancies, ensuring efficient and accurate inventory management.
+          </p>
+        </div>
+
+        {/* Testimonial */}
+        <div className="mt-20 text-center">
+          <h2 className="text-4xl font-bold text-yellow-700">
+            Our customers love using StockMate inventory
+          </h2>
+          <p className="text-xl text-black mt-10 font-semibold">
+            Amit Sharma, Owner of FreshMart Grocery Store
+          </p>
+          <p className="text-base text-black mt-5 max-w-3xl mx-auto break-words">
+            "StockMate has been a game-changer for my grocery shop. I can now effortlessly
+            display which products are in stock and which are out of stock, helping my
+            customers make informed choices before they visit the store. It's an all-in-one
+            platform that streamlines my daily operations and keeps my customers happy!"
+          </p>
+          <img
+            src="/stockmate_icon.png"
+            className="w-30 h-30 mt-10 rounded-full mx-auto my-auto"
+            alt="Customer"
+          />
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-20">
+          <h2 className="text-3xl font-bold text-green-800">
+            Upgrade to an All-in-One Inventory Management Solution
+          </h2>
+          <button
+            onClick={handleLoginClick}
+            className="px-16 py-4 bg-red-700 text-white rounded-md hover:bg-green-400 text-lg mt-9"
+          >
+            Let's Check it!
+          </button>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mt-20 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-10">
+            Frequently Asked Questions
+          </h2>
+          {faqData.map((item, index) => (
+            <FAQItem key={index} question={item.question} answer={item.answer} />
+          ))}
         </div>
       </div>
+      {/* Footer Section */}
+      <footer className="bg-gray-800 text-white py-10 mt-20">
+  <div className="container mx-auto px-6">
+    {/* Company Information */}
+    <div className="text-center">
+      <h3 className="text-2xl font-semibold mb-2 text-yellow-400">About StockMate</h3>
+      <p className="text-sm text-gray-400">
+        StockMate offers intelligent inventory management solutions to simplify business operations and optimize efficiency.
+      </p>
+    </div>
 
-       {/*Faq section*/ }
-       <div className='flex justify-center mt-20 text-3xl font-bold'>
-      Frequently Asked Questions </div>
-      <div className="mt-10 mx-165 text-left">
-            {faqData.map((item, index) => (
-              <FAQItem
-                key={index}
-                question={item.question}
-                answer={item.answer}
-              />
-            ))}
-          </div>
+    {/* Quick Links */}
+    <div className="flex justify-center space-x-6 mt-8 text-sm text-gray-400">
+      <a href="/about" className=" hover:text-blue-500">About Us</a>
+      <a href="/privacy-policy" className=" hover:text-blue-500">Privacy Policy</a>
+      <a href="/terms" className=" hover:text-blue-500">Terms of Service</a>
+      <a href="/faq" className=" hover:text-blue-500">FAQ</a>
+    </div>
+
+    {/* Social Media Links */}
+    <div className="flex justify-center space-x-6 mt-6">
+  {/* Facebook */}
+  <a href="https://facebook.com" target="_blank" className="text-blue-600 hover:text-blue-800">
+    <i className="fab fa-facebook-f"></i>
+  </a>
+  {/* Twitter */}
+  <a href="https://twitter.com" target="_blank" className="text-blue-400 hover:text-blue-500">
+    <i className="fab fa-twitter"></i>
+  </a>
+  {/* LinkedIn */}
+  <a href="https://linkedin.com" target="_blank" className="text-blue-700 hover:text-blue-900">
+    <i className="fab fa-linkedin-in"></i>
+  </a>
+  {/* Instagram */}
+  <a href="https://instagram.com" target="_blank" className="text-pink-600 hover:text-pink-800">
+    <i className="fab fa-instagram"></i>
+  </a>
+</div>
+
+
+    {/* Contact Information */}
+    <div className="text-center mt-8 text-sm text-gray-400">
+      <p>Contact us: <a href="mailto:support@stockmate.com" className="text-yellow-400 hover:text-blue-500">support@stockmate.com</a></p>
+      <p>Call us: (123) 456-7890</p>
+    </div>
+
+    {/* Newsletter Signup */}
+    <div className="text-center mt-8">
+      <h3 className="text-xl font-semibold text-yellow-400">Stay Updated</h3>
+      <form className="flex justify-center items-center mt-4 w-full sm:w-auto">
+        <input
+          type="email"
+          placeholder="Your email"
+          className="p-2 text-gray-500 rounded-l-md w-full sm:w-auto sm:mr-2 bg-white"
+        />
+        <button className="p-2 bg-blue-600 text-white rounded-r-md w-full sm:w-auto">
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    {/* Legal Information */}
+    <div className="text-center mt-8 text-sm text-gray-400">
+      <p>&copy; {new Date().getFullYear()} StockMate. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
     </div>
   );
 };
 
-export default Welcome ; 
-
+export default Welcome;
