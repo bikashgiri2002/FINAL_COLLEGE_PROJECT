@@ -15,13 +15,9 @@ const FAQItem = ({ question, answer }) => {
         className="flex justify-between items-center cursor-pointer"
         onClick={toggleOpen}
       >
-<<<<<<< HEAD
+
         <h4 className="font-bold text-l text-gray-700">{question}</h4>
         <span className="text-gray-800 text-m">{isOpen ? '▲' : '▼'}</span>
-=======
-        <h2 className="font-bold text-xl text-blue-800">{question}</h2>
-        <span className="text-gray-800 text-m">{isOpen ? "▲" : "▼"}</span>
->>>>>>> 8953b63f8cdb02146037c8e3fdfffb7e4b702080
       </div>
       {isOpen && <p className="mt-2 text-gray-600">{answer}</p>}
     </div>
@@ -66,43 +62,44 @@ const Welcome = () => {
     <div>
       {/* Content Section */}
       <div
-        className="flex-grow flex justify-center"
-        style={{
-          background: "linear-gradient(to bottom,rgb(255, 216, 158), #FFF7E1)",
-          minHeight: "100vh", // Ensure full viewport height
-        }}
-      >
-        <div className="text-center">
-          <h1 className="text-5xl font-bold mt-[160px] text-black">
-            Empowering Your Business with Intelligent <br />
-            Inventory Solutions
-          </h1>
-          <h1 className="mt-6 text-xl text-black">
-            Manage your stock, orders, and business growth with ease using our
-            free inventory solution.
-          </h1>
-          <div className="flex justify-center mt-2">
-            <button
-              onClick={handleLoginClick}
-              className="px-[72px] py-4 bg-yellow-500 text-black rounded-md hover:bg-blue-400 text-lg mt-9"
-            >
-              Begin Exploring
-            </button>
-          </div>
-          <div className="flex justify-center mt-28">
-            <img
-              className="rounded-2xl"
-              src="/dashboard.png"
-              alt="Dashboard Preview"
-              style={{
-                width: "1100px",
-                height: "590px",
-              }}
-            />
-          </div>
+  className="flex-grow flex justify-center"
+  style={{
+    background: "linear-gradient(to bottom, rgb(255, 216, 158), #FFF7E1)",
+    minHeight: "100vh", // Ensure full viewport height
+  }}
+>
+  <div className="text-center px-4 sm:px-6 md:px-8">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-[80px] sm:mt-[100px] md:mt-[160px] text-black">
+      Empowering Your Business with Intelligent <br />
+      Inventory Solutions
+    </h1>
+    <h2 className="mt-4 sm:mt-5 md:mt-6 text-lg sm:text-s md:text-l text-black">
+      Manage your stock, orders, and business growth with ease using our
+      free inventory solution.
+    </h2>
 
-          <div className="flex justify-center mt-40">
-            <h1 className="text-4xl font-bold text-orange-800">
+    <div className="flex justify-center mt-4 sm:mt-5 md:mt-9">
+      <button
+        onClick={handleLoginClick}
+        className="px-8 py-4 bg-yellow-500 text-black rounded-md hover:bg-blue-400 text-lg sm:text-xl md:text-lg mt-6 sm:mt-8"
+      >
+        Begin Exploring
+      </button>
+    </div>
+
+    {/* Responsive Image */}
+    <div className="flex justify-center mt-12 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24">
+  <img
+    className="rounded-2xl w-full max-w-full sm:max-w-[600px] md:max-w-[1000px] lg:max-w-[1200px] h-auto"
+    src="/dashboard.png"
+    alt="Dashboard Preview"
+  />
+</div>
+
+ 
+
+          <div className="flex justify-center mt-30 sm:px-6 md:px-8">
+            <h1 className="text-3xl sm:text-xl md:text-4xl  sm:mt-[90px] md:mt-[100px]  font-bold text-orange-800">
               StockMate simplifies inventory management by offering tailored
               features that<br></br> streamline operations, enhance
               organization, and boost efficiency
@@ -248,7 +245,7 @@ const Welcome = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
+
        {/*Faq section*/ }
        <div className='flex justify-center mt-20 text-3xl font-bold'>
       Frequently Asked Questions </div>
@@ -261,23 +258,9 @@ const Welcome = () => {
               />
             ))}
           </div>
-=======
-      {/*Faq section*/}
-      <div className="flex justify-center mt-20 text-3xl font-bold">
-        Frequently Asked Questions{" "}
-      </div>
-      <div className="mt-10 mx-140 text-left">
-        {faqData.map((item, index) => (
-          <FAQItem key={index} question={item.question} answer={item.answer} />
-        ))}
-      </div>
->>>>>>> 8953b63f8cdb02146037c8e3fdfffb7e4b702080
     </div>
   );
 };
 
-<<<<<<< HEAD
 export default Welcome ; 
-=======
-export default Welcome;
->>>>>>> 8953b63f8cdb02146037c8e3fdfffb7e4b702080
+
