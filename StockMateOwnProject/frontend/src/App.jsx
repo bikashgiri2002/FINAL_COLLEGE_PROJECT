@@ -7,17 +7,18 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Warehouses from "./pages/Warehouse";
 import Inventory from "./pages/Inventory";
-import Welcome from "./pages/Welcome"; // Import the Welcome page
+import Welcome from "./pages/Welcome";
+import ResetPasswordPage from "./pages/ResetPasswordPage"; // ✅ Import the ResetPasswordPage
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   const { shop } = useContext(ShopContext);
 
   return (
-    <div className="min-h-screen bg-gray-100 ">
+    <div className="min-h-screen bg-gray-100">
       <Navbar />
       <div>
         <Routes>
-          {/* Show Welcome page first */}
           <Route path="/" element={shop ? <Dashboard /> : <Welcome />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -32,6 +33,14 @@ function App() {
           <Route
             path="/inventory"
             element={shop ? <Inventory /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/reset-password/:token"
+            element={<ResetPasswordPage />}
+          />
+          <Route
+            path="/forgot-password"
+            element={!shop ? <ForgotPassword /> : <Navigate to="/" />}
           />
         </Routes>
       </div>

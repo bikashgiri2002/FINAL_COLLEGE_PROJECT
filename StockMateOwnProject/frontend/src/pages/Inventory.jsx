@@ -12,8 +12,8 @@ const Inventory = () => {
     price: "",
     category: "",
   });
-
   const [isOpen, setIsOpen] = useState(false);
+  const [priceUpdates, setPriceUpdates] = useState({}); // Track new prices
 
   useEffect(() => {
     fetchInventory();
@@ -92,6 +92,35 @@ const Inventory = () => {
       fetchInventory();
     } catch (error) {
       console.error("Error updating quantity", error);
+    }
+  };
+
+  const handlePriceChange = (id, value) => {
+    setPriceUpdates((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleUpdatePrice = async (id) => {
+    const newPrice = priceUpdates[id];
+    if (!newPrice || isNaN(newPrice)) {
+      alert("Please enter a valid price.");
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem("token");
+      await axios.patch(
+        `http://localhost:5000/api/inventory/${id}/price`,
+        { price: parseFloat(newPrice) },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      fetchInventory();
+      setPriceUpdates((prev) => {
+        const updated = { ...prev };
+        delete updated[id];
+        return updated;
+      });
+    } catch (error) {
+      console.error("Error updating price", error);
     }
   };
 
@@ -195,19 +224,22 @@ const Inventory = () => {
               {warehouse.name} ({warehouse.location})
             </h4>
             {warehouse.items.length === 0 ? (
-              <p className="text-gray-500 dark:text-gray-400">No products in this warehouse.</p>
+              <p className="text-gray-500 dark:text-gray-400">
+                No products in this warehouse.
+              </p>
             ) : (
               <ul className="space-y-2">
                 {warehouse.items.map((item) => (
                   <li
                     key={item._id}
-                    className="border p-3 rounded-md flex justify-between items-center dark:bg-gray-800 dark:border-gray-700"
+                    className="border p-3 rounded-md flex flex-col md:flex-row md:justify-between md:items-center dark:bg-gray-800 dark:border-gray-700"
                   >
-                    <div>
+                    <div className="mb-2 md:mb-0">
                       <strong>{item.productName}</strong> (SKU: {item.sku}) -{" "}
                       {item.quantity} pcs - ₹{item.price}
                     </div>
-                    <div className="flex space-x-2">
+
+                    <div className="flex flex-wrap gap-2 items-center">
                       <button
                         className="bg-green-500 text-white px-3 py-1 rounded-md hover:bg-green-600"
                         onClick={() =>
@@ -223,6 +255,21 @@ const Inventory = () => {
                         }
                       >
                         -1
+                      </button>
+                      <input
+                        type="number"
+                        placeholder="New Price"
+                        value={priceUpdates[item._id] || ""}
+                        onChange={(e) =>
+                          handlePriceChange(item._id, e.target.value)
+                        }
+                        className="w-24 p-1 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      />
+                      <button
+                        className="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600"
+                        onClick={() => handleUpdatePrice(item._id)}
+                      >
+                        Update Price
                       </button>
                       <button
                         className="bg-gray-600 text-white px-3 py-1 rounded-md hover:bg-gray-700"

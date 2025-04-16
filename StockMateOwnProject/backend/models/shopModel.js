@@ -7,6 +7,10 @@ const shopSchema = new mongoose.Schema(
     password: { type: String, required: true },
     phone: { type: String, required: true },
     address: { type: String, required: true },
+
+    // For password reset
+    resetPasswordToken: { type: String },
+    resetPasswordExpires: { type: Date },
   },
   { timestamps: true }
 );
