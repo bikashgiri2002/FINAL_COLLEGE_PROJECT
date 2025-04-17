@@ -10,6 +10,11 @@ import Inventory from "./pages/Inventory";
 import Welcome from "./pages/Welcome";
 import ResetPasswordPage from "./pages/ResetPasswordPage"; // ✅ Import the ResetPasswordPage
 import ForgotPassword from "./pages/ForgotPassword";
+import Features from "./pages/Features";
+import Resources from "./pages/Resources";
+import About from "./pages/About";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 
 function App() {
   const { shop } = useContext(ShopContext);
@@ -42,6 +47,11 @@ function App() {
             path="/forgot-password"
             element={!shop ? <ForgotPassword /> : <Navigate to="/" />}
           />
+          <Route path="/features" element={<Features />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </div>
     </div>

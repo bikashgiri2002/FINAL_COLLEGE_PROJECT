@@ -203,7 +203,7 @@ const Welcome = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-20 max-w-3xl mx-auto">
+        <div className="mt-20 max-w-3xl mx-auto" id="faq">
           <h2 className="text-3xl font-bold text-center mb-10">
             Frequently Asked Questions
           </h2>
@@ -240,9 +240,6 @@ const Welcome = () => {
             </a>
             <a href="/terms" className=" hover:text-blue-500">
               Terms of Service
-            </a>
-            <a href="/faq" className=" hover:text-blue-500">
-              FAQ
             </a>
           </div>
 

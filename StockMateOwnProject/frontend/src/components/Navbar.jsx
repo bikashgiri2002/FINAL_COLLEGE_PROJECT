@@ -65,7 +65,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-6">
           {!shop ? (
             <>
-              {["features", "solutions", "integrations", "resources"].map(
+              {["features", "resources"].map(
                 (item) => (
                   <NavLink
                     key={item}

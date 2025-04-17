@@ -20,6 +20,7 @@ const Login = () => {
       navigate("/dashboard");
     } catch (error) {
       console.error(error.response?.data?.message || "Login failed");
+      alert("Login failed. Please check your credentials." + error.message);
     }
   };
 
