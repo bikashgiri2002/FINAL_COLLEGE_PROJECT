@@ -54,7 +54,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white p-6">
       {/* Header */}
       <div className="flex justify-between items-center mb-10">
-        <h1 className="text-3xl font-extrabold text-blue-700 dark:text-blue-400">
+        <h1 className="text-3xl font-extrabold text-blue-700 dark:text-teal-300">
           Hello, {shop?.name}
         </h1>
         <button
@@ -73,7 +73,7 @@ const Dashboard = () => {
             className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 border border-gray-200 dark:border-gray-700 transition-all min-h-[450px] flex flex-col"
           >
             <div className="mb-4">
-              <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
+              <h2 className="text-xl font-semibold text-indigo-600 dark:text-yellow-500">
                 {warehouse.name}
               </h2>
               <p className="text-sm text-gray-600 dark:text-gray-300">
