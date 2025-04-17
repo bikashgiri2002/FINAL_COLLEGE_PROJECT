@@ -8,7 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Warehouses from "./pages/Warehouse";
 import Inventory from "./pages/Inventory";
 import Welcome from "./pages/Welcome";
-import ResetPasswordPage from "./pages/ResetPasswordPage"; // ✅ Import the ResetPasswordPage
+import ResetPasswordPage from "./pages/ResetPasswordPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import Features from "./pages/Features";
 import Resources from "./pages/Resources";
