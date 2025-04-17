@@ -7,13 +7,13 @@ const Features = () => {
         <img
           src="/multi.jpg"
           alt="multi"
-          className="h-[350px] w-[550px] m-8 inset-shadow-blue-950 rounded-lg"
+          className="h-[350px] md:w-2/5 m-8 inset-shadow-blue-950 rounded-lg"
         ></img>
         <div className="flex flex-col">
           <h1 className="font-bold text-2xl text-blue-950 mt-20">
             Multi-location management
           </h1>
-          <p className="h-[300px] w-[700px] font-medium mt-10 text-xl text-blue-950">
+          <p className="h-[300px] md:w-4/5 font-medium mt-6 text-xl text-blue-950">
             Efficiently manage inventory across multiple locations with
             Stockmate's seamless multi-location tracking. Keep stock levels
             updated in real time, transfer items between branches effortlessly,
@@ -30,7 +30,7 @@ const Features = () => {
           <h1 className="font-bold text-2xl text-blue-950 mt-20">
             Bundle Offerings
           </h1>
-          <p className="h-[300px] w-[700px] font-medium mt-10 text-xl text-blue-950">
+          <p className="h-[300px] md:w-4/5 font-medium mt-6 text-xl text-blue-950">
             Enhance sales and streamline inventory with Stockmate’s Bundle
             Offering feature. Effortlessly group related products into
             attractive bundles, ensuring better value for customers while
@@ -44,20 +44,20 @@ const Features = () => {
         <img
           src="/MARKET.png"
           alt="market"
-          className="h-[350px] w-[550px] m-8 inset-shadow-blue-950 rounded-lg"
+          className="h-[350px] md:w-2/5 mr-20 mt-8 inset-shadow-blue-950 rounded-lg"
         ></img>
       </div>
       <div className="flex flex-row gap-10 ml-18">
         <img
           src="/istockphoto.jpg"
           alt="istock"
-          className="h-[350px] w-[550px] m-8 inset-shadow-blue-950 rounded-lg"
+          className="h-[350px] md:w-2/5 m-8 inset-shadow-blue-950 rounded-lg"
         ></img>
         <div className="flex flex-col">
           <h1 className="font-bold text-2xl text-blue-950 mt-20">
             History Made Simple
           </h1>
-          <p className="h-[300px] w-[700px] font-medium mt-10 text-xl text-blue-950">
+          <p className="h-[300px] font-medium mt-6 mr-20 text-xl text-blue-950">
             Effortlessly track past transactions and inventory changes with
             Stockmate’s History Made Simple feature. Instantly access detailed
             records of stock movements, sales, and adjustments across multiple
@@ -73,7 +73,7 @@ const Features = () => {
           <h1 className="font-bold text-2xl text-blue-950 mt-20">
             Reports & Analytics
           </h1>
-          <p className="h-[300px] w-[700px] font-medium mt-10 text-xl text-blue-950">
+          <p className="h-[300px] md:w-4/5 font-medium mt-6 text-xl text-blue-950">
             Gain valuable insights into your inventory with Stockmate’s Reports
             & Analytics feature. Track sales trends, monitor stock movements,
             and analyze performance across multiple locations in real time.
@@ -86,20 +86,20 @@ const Features = () => {
         <img
           src="/report.png"
           alt="market"
-          className="h-[350px] w-[550px] m-8 inset-shadow-blue-950 rounded-lg"
+          className="h-[350px] md:w-2/5 mt-8 mr-20 inset-shadow-blue-950 rounded-lg"
         ></img>
       </div>
       <div className="flex flex-row gap-10 ml-18">
         <img
           src="/email-varification.webp"
           alt="email-verification"
-          className="h-[350px] w-[550px] m-8 inset-shadow-blue-950 rounded-lg"
+          className="h-[350px] md:w-2/5 m-8 inset-shadow-blue-950 rounded-lg"
         ></img>
         <div className="flex flex-col">
           <h1 className="font-bold text-2xl text-blue-950 mt-20">
             Email Verification
           </h1>
-          <p className="h-[300px] w-[700px] font-medium mt-10 text-xl text-blue-950">
+          <p className="h-[300px] md:w-4/5 font-medium mt-6 text-xl text-blue-950">
             Ensure secure access and reliable communication with Stockmate’s
             Email Verification feature. Verify user emails to prevent
             unauthorized access, protect sensitive inventory data, and enhance
@@ -111,6 +111,107 @@ const Features = () => {
           </p>
         </div>
       </div>
+
+      {/* Footer Section */}
+      <footer className="bg-gray-800 text-white py-10 mt-20">
+        <div className="container mx-auto px-6">
+          {/* Company Information */}
+          <div className="text-center">
+            <h3 className="text-2xl font-semibold mb-2 text-yellow-400">
+              About StockMate
+            </h3>
+            <p className="text-sm text-gray-400">
+              StockMate offers intelligent inventory management solutions to
+              simplify business operations and optimize efficiency.
+            </p>
+          </div>
+          {/* Quick Links */}
+          <div className="flex justify-center space-x-6 mt-8 text-sm text-gray-400">
+            <a href="/about" className=" hover:text-blue-500">
+              About Us
+            </a>
+            <a href="/privacy-policy" className=" hover:text-blue-500">
+              Privacy Policy
+            </a>
+            <a href="/terms" className=" hover:text-blue-500">
+              Terms of Service
+            </a>
+          </div>
+          {/* Social Media Links */}
+          <div className="flex justify-center space-x-6 mt-6">
+            {/* Facebook */}
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              className="text-blue-600 hover:text-blue-800"
+            >
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            {/* Twitter */}
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              className="text-blue-400 hover:text-blue-500"
+            >
+              <i className="fab fa-twitter"></i>
+            </a>
+            {/* LinkedIn */}
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              className="text-blue-700 hover:text-blue-900"
+            >
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            {/* Instagram */}
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              className="text-pink-600 hover:text-pink-800"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+          </div>
+
+          {/* Contact Information */}
+          <div className="text-center mt-8 text-sm text-gray-400">
+            <p>
+              Contact us:{" "}
+              <a
+                href="mailto:support@stockmate.com"
+                className="text-yellow-400 hover:text-blue-500"
+              >
+                support@stockmate.com
+              </a>
+            </p>
+            <p>Call us: (123) 456-7890</p>
+          </div>
+
+          {/* Newsletter Signup */}
+          <div className="text-center mt-8">
+            <h3 className="text-xl font-semibold text-yellow-400">
+              Stay Updated
+            </h3>
+            <form className="flex justify-center items-center mt-4 w-full sm:w-auto">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="p-2 text-gray-500 rounded-l-md w-full sm:w-auto sm:mr-2 bg-white"
+              />
+              <button className="p-2 bg-blue-600 text-white rounded-r-md w-full sm:w-auto">
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+          {/* Legal Information */}
+          <div className="text-center mt-8 text-sm text-gray-400">
+            <p>
+              &copy; {new Date().getFullYear()} StockMate. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
