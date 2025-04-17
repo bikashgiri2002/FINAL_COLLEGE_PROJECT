@@ -75,7 +75,7 @@ const Welcome = () => {
           </div>
           <img
             className="mt-12 mx-auto rounded-xl w-full max-w-[1200px]"
-            src="/update dasbord (1).png"
+            src="/dashboard.png"
             alt="Dashboard Preview"
           />
         </div>
