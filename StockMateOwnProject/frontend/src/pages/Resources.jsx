@@ -3,112 +3,114 @@ import React from "react";
 const Resources = () => {
   return (
     <div className="bg-gradient-to-b from-[#FFD89E] to-[#FFF7E1] min-h-screen">
-      <h1 className="text-center text-2xl font-bold mb-5">Resources</h1>
+      <div className="ml-10 mr-10">
+        <h1 className="text-center text-2xl md:text-3xl font-bold text-blue-950 mb-10 pt-5">
+          Resources
+        </h1>
 
-      {/* Get Started Block */}
-      <div className="get-stated flex flex-col gap-5 md:flex-row">
-        <div className="image md:w-2/5 w-full md:h-[18rem] p-1">
+        {/* Get Started Block */}
+        <div className="flex flex-col lg:flex-row gap-10 items-center">
           <img
             src="/get-stated.png"
             alt="get-started page"
-            className="h-full w-full rounded-2xl"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
           />
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-2xl text-blue-950 mt-1">
+              Get Started
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Registering your shop on Stokemate is a quick and hassle-free
+              process designed to help you get started in no time. With just a few
+              simple steps, you can create your store, list your products, and
+              begin selling to a wide audience. The platform offers a
+              user-friendly interface, making it easy for both new and experienced
+              sellers to manage their business efficiently. Stokemate also
+              provides helpful tools for inventory management, order tracking, and
+              customer engagement. Start your journey today!
+            </p>
+          </div>
         </div>
-        <div className="md:w-3/5 w-full flex flex-col justify-center gap-2 p-2">
-          <h2 className="text-2xl font-bold text-black">Get Started</h2>
-          <p className="text-base text-gray-600 mt-5 break-words max-w-2xl">
-            Registering your shop on Stokemate is a quick and hassle-free
-            process designed to help you get started in no time. With just a few
-            simple steps, you can create your store, list your products, and
-            begin selling to a wide audience. The platform offers a
-            user-friendly interface, making it easy for both new and experienced
-            sellers to manage their business efficiently. Stokemate also
-            provides helpful tools for inventory management, order tracking, and
-            customer engagement. Start your journey today!
-          </p>
-        </div>
-      </div>
 
-      {/* Log In */}
-      <div className="get-stated flex flex-col gap-5 md:flex-row-reverse">
-        <div className="image md:w-2/5 w-full md:h-[18rem] p-1">
+        {/* Log In */}
+        <div className="flex flex-col lg:flex-row-reverse gap-10 items-center mt-10">
           <img
             src="/user-access.png"
             alt="login page"
-            className="h-full w-full rounded-2xl"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
           />
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-xl md:text-2xl text-blue-950 mt-1">
+              Log In
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Once registered, log in using your credentials to access your
+              dashboard. Our secure authentication ensures your data is protected.
+              After logging in, you can manage your inventory, view insights, and
+              start organizing your business operations.
+            </p>
+          </div>
         </div>
-        <div className="md:w-3/5 w-full flex flex-col justify-center gap-2 p-2">
-          <h2 className="text-2xl font-bold text-black">Log In</h2>
-          <p className="text-base text-gray-600 mt-5 break-words max-w-2xl">
-            Once registered, log in using your credentials to access your
-            dashboard. Our secure authentication ensures your data is protected.
-            After logging in, you can manage your inventory, view insights, and
-            start organizing your business operations.
-          </p>
-        </div>
-      </div>
 
-      {/* Add Warehouse */}
-      <div className="get-stated flex flex-col gap-5 md:flex-row">
-        <div className="image md:w-2/5 w-full md:h-[18rem] p-1">
+        {/* Add Warehouse */}
+        <div className="flex flex-col lg:flex-row gap-10 items-center mt-10">
           <img
             src="/ware-house-manage.png"
             alt="add warehouse page"
-            className="h-full w-full rounded-2xl"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
           />
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-2xl text-blue-950 mt-1">
+              Add Warehouse
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Create one or multiple warehouses to organize your stock
+              efficiently. You can define the location, assign warehouse managers,
+              and set stock levels for accurate inventory tracking.
+            </p>
+          </div>
         </div>
-        <div className="md:w-3/5 w-full flex flex-col justify-center gap-2 p-2">
-          <h2 className="text-2xl font-bold text-black">Add Warehouse</h2>
-          <p className="text-base text-gray-600 mt-5 break-words max-w-2xl">
-            Create one or multiple warehouses to organize your stock
-            efficiently. You can define the location, assign warehouse managers,
-            and set stock levels for accurate inventory tracking.
-          </p>
-        </div>
-      </div>
 
-      {/* Add Products */}
-      <div className="get-stated flex flex-col gap-5 md:flex-row-reverse">
-        <div className="image md:w-2/5 w-full md:h-[18rem] p-1">
+        {/* Add Products */}
+        <div className="flex flex-col lg:flex-row-reverse gap-10 items-center mt-10">
           <img
             src="/inventory-manage.png"
             alt="add products page"
-            className="h-full w-full rounded-2xl"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
           />
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-xl md:text-2xl text-blue-950 mt-1">
+              Add Products
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Add new products to your inventory by entering details such as name,
+              SKU, price, quantity, and description. Categorize products to manage
+              them more effectively across different warehouses.
+            </p>
+          </div>
         </div>
-        <div className="md:w-3/5 w-full flex flex-col justify-center gap-2 p-2">
-          <h2 className="text-2xl font-bold text-black">Add Products</h2>
-          <p className="text-base text-gray-600 mt-5 break-words max-w-2xl">
-            Add new products to your inventory by entering details such as name,
-            SKU, price, quantity, and description. Categorize products to manage
-            them more effectively across different warehouses.
-          </p>
-        </div>
-      </div>
 
-      {/* Modify Product */}
-      <div className="get-stated flex flex-col gap-5 md:flex-row">
-        <div className="image md:w-2/5 w-full md:h-[18rem] p-1">
+        {/* Modify Product */}
+        <div className="flex flex-col lg:flex-row gap-10 items-center mt-10">
           <img
             src="/customization.png"
             alt="modify product page"
-            className="h-full w-full rounded-2xl"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
           />
-        </div>
-        <div className="md:w-3/5 w-full flex flex-col justify-center gap-2 p-2">
-          <h2 className="text-2xl font-bold text-black">Modify Product</h2>
-          <p className="text-base text-gray-600 mt-5 break-words max-w-2xl">
-            Easily update product information like price, quantity, or
-            description as your business evolves. StockMate ensures that all
-            changes reflect across your entire system instantly, keeping your
-            inventory accurate.
-          </p>
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-2xl text-blue-950 mt-1">
+              Modify Product
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Easily update product information like price, quantity, or
+              description as your business evolves. StockMate ensures that all
+              changes reflect across your entire system instantly, keeping your
+              inventory accurate.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Footer */}
-      {/* [Your existing footer remains unchanged here] */}
       <footer className="bg-gray-800 text-white py-10 mt-20">
         <div className="container mx-auto px-6">
           {/* Company Information */}
