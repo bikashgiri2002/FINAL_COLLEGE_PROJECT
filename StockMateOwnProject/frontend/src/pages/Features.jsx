@@ -2,113 +2,117 @@ import React from "react";
 
 const Features = () => {
   return (
-    <div className="bg-gradient-to-b from-[#FFD89E] to-[#FFF7E1] min-h-screen sm:px-8 lg:px-16">
-      <div className="flex flex-col lg:flex-row gap-10 items-center">
-        <img
-          src="/multi.jpg"
-          alt="multi"
-          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
-        ></img>
-        <div className="text-center lg:text-left">
-          <h1 className="font-bold text-2xl text-blue-950 mt-1">
-            Multi-location management
-          </h1>
-          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
-            Efficiently manage inventory across multiple locations with
-            Stockmate's seamless multi-location tracking. Keep stock levels
-            updated in real time, transfer items between branches effortlessly,
-            and receive location-specific alerts to prevent shortages. Generate
-            insightful reports for each warehouse or store, ensuring balanced
-            inventory distribution. Simplify operations by assigning
-            location-based managers and automating stock adjustments for optimal
-            efficiency.
-          </p>
+    <div className="bg-gradient-to-b from-[#FFD89E] to-[#FFF7E1] min-h-screen">
+      <div className="ml-10 mr-10">
+        <div className="flex flex-col lg:flex-row gap-10 items-center">
+          <img
+            src="/multi.jpg"
+            alt="multi"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
+          ></img>
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-2xl text-blue-950 mt-1">
+              Multi-location management
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Efficiently manage inventory across multiple locations with
+              Stockmate's seamless multi-location tracking. Keep stock levels
+              updated in real time, transfer items between branches
+              effortlessly, and receive location-specific alerts to prevent
+              shortages. Generate insightful reports for each warehouse or
+              store, ensuring balanced inventory distribution. Simplify
+              operations by assigning location-based managers and automating
+              stock adjustments for optimal efficiency.
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col lg:flex-row-reverse gap-10 items-center mt-10">
-        <img
-          src="/MARKET.png"
-          alt="market"
-          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
-        />
-        <div className="text-center lg:text-left">
-          <h1 className="font-bold text-xl md:text-2xl text-blue-950 mt-1">
-            Bundle Offerings
-          </h1>
-          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
-            Enhance sales and streamline inventory with Stockmate’s Bundle
-            Offering feature. Effortlessly group related products into
-            attractive bundles, ensuring better value for customers while
-            optimizing stock management. Track bundle sales, automate stock
-            deductions, and adjust pricing dynamically to boost profitability.
-            Improve customer engagement with curated package deals and maintain
-            seamless inventory control across multiple locations. Simplify
-            operations and maximize revenue effortlessly!
-          </p>
+        <div className="flex flex-col lg:flex-row-reverse gap-10 items-center mt-10">
+          <img
+            src="/MARKET.png"
+            alt="market"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
+          />
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-xl md:text-2xl text-blue-950 mt-1">
+              Bundle Offerings
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Enhance sales and streamline inventory with Stockmate’s Bundle
+              Offering feature. Effortlessly group related products into
+              attractive bundles, ensuring better value for customers while
+              optimizing stock management. Track bundle sales, automate stock
+              deductions, and adjust pricing dynamically to boost profitability.
+              Improve customer engagement with curated package deals and
+              maintain seamless inventory control across multiple locations.
+              Simplify operations and maximize revenue effortlessly!
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col lg:flex-row gap-10 items-center mt-10">
-        <img
-          src="/istockphoto.jpg"
-          alt="istock"
-          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
-        ></img>
-        <div className="text-center lg:text-left">
-          <h1 className="font-bold text-2xl text-blue-950 mt-1">
-            History Made Simple
-          </h1>
-          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
-            Effortlessly track past transactions and inventory changes with
-            Stockmate’s History Made Simple feature. Instantly access detailed
-            records of stock movements, sales, and adjustments across multiple
-            locations. Generate reports with just a click, ensuring transparency
-            and accuracy. Simplify audits, improve decision-making, and maintain
-            a reliable inventory history—all in an easy-to-navigate interface
-            designed for efficiency. Stay organized and in control at all times!
-          </p>
+        <div className="flex flex-col lg:flex-row gap-10 items-center mt-10">
+          <img
+            src="/istockphoto.jpg"
+            alt="istock"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
+          ></img>
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-2xl text-blue-950 mt-1">
+              History Made Simple
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Effortlessly track past transactions and inventory changes with
+              Stockmate’s History Made Simple feature. Instantly access detailed
+              records of stock movements, sales, and adjustments across multiple
+              locations. Generate reports with just a click, ensuring
+              transparency and accuracy. Simplify audits, improve
+              decision-making, and maintain a reliable inventory history—all in
+              an easy-to-navigate interface designed for efficiency. Stay
+              organized and in control at all times!
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col lg:flex-row-reverse gap-10 items-center mt-10">
-        <img
-          src="/report.png"
-          alt="market"
-          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
-        ></img>
-        <div className="text-center lg:text-left">
-          <h1 className="font-bold text-xl md:text-2xl text-blue-950 mt-1">
-            Reports & Analytics
-          </h1>
-          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
-            Gain valuable insights into your inventory with Stockmate’s Reports
-            & Analytics feature. Track sales trends, monitor stock movements,
-            and analyze performance across multiple locations in real time.
-            Generate detailed reports with ease, helping you optimize purchasing
-            decisions and reduce waste. Make data-driven choices, improve
-            efficiency, and stay ahead in inventory management with smart,
-            automated analytics tailored for your business success.
-          </p>
+        <div className="flex flex-col lg:flex-row-reverse gap-10 items-center mt-10">
+          <img
+            src="/report.png"
+            alt="market"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
+          ></img>
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-xl md:text-2xl text-blue-950 mt-1">
+              Reports & Analytics
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Gain valuable insights into your inventory with Stockmate’s
+              Reports & Analytics feature. Track sales trends, monitor stock
+              movements, and analyze performance across multiple locations in
+              real time. Generate detailed reports with ease, helping you
+              optimize purchasing decisions and reduce waste. Make data-driven
+              choices, improve efficiency, and stay ahead in inventory
+              management with smart, automated analytics tailored for your
+              business success.
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col lg:flex-row gap-10 items-center mt-10">
-        <img
-          src="/email-varification.webp"
-          alt="email-verification"
-          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
-        ></img>
-        <div className="text-center lg:text-left">
-          <h1 className="font-bold text-2xl text-blue-950 mt-1">
-            Email Verification
-          </h1>
-          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
-            Ensure secure access and reliable communication with Stockmate’s
-            Email Verification feature. Verify user emails to prevent
-            unauthorized access, protect sensitive inventory data, and enhance
-            platform security. Email verification helps reduce fraud, ensures
-            legitimate user registration, and improves account recovery.
-            Strengthen trust and safeguard business operations by confirming
-            user identities before granting system access. A secure inventory
-            starts with verified users!
-          </p>
+        <div className="flex flex-col lg:flex-row gap-10 items-center mt-10">
+          <img
+            src="/email-varification.webp"
+            alt="email-verification"
+            className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
+          ></img>
+          <div className="text-center lg:text-left">
+            <h1 className="font-bold text-2xl text-blue-950 mt-1">
+              Email Verification
+            </h1>
+            <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
+              Ensure secure access and reliable communication with Stockmate’s
+              Email Verification feature. Verify user emails to prevent
+              unauthorized access, protect sensitive inventory data, and enhance
+              platform security. Email verification helps reduce fraud, ensures
+              legitimate user registration, and improves account recovery.
+              Strengthen trust and safeguard business operations by confirming
+              user identities before granting system access. A secure inventory
+              starts with verified users!
+            </p>
+          </div>
         </div>
       </div>
 
