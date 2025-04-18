@@ -2,18 +2,18 @@ import React from "react";
 
 const Features = () => {
   return (
-    <div className="bg-gradient-to-b from-[#FFD89E] to-[#FFF7E1] min-h-screen">
-      <div className="flex flex-row gap-10 ml-18">
+    <div className="bg-gradient-to-b from-[#FFD89E] to-[#FFF7E1] min-h-screen sm:px-8 lg:px-16">
+      <div className="flex flex-col lg:flex-row gap-10 items-center">
         <img
           src="/multi.jpg"
           alt="multi"
-          className="h-[350px] md:w-2/5 m-8 inset-shadow-blue-950 rounded-lg"
+          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
         ></img>
-        <div className="flex flex-col">
-          <h1 className="font-bold text-2xl text-blue-950 mt-20">
+        <div className="text-center lg:text-left">
+          <h1 className="font-bold text-2xl text-blue-950 mt-1">
             Multi-location management
           </h1>
-          <p className="h-[300px] md:w-4/5 font-medium mt-6 text-xl text-blue-950">
+          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
             Efficiently manage inventory across multiple locations with
             Stockmate's seamless multi-location tracking. Keep stock levels
             updated in real time, transfer items between branches effortlessly,
@@ -25,12 +25,17 @@ const Features = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-row gap-10 ml-23">
-        <div className="flex flex-col">
-          <h1 className="font-bold text-2xl text-blue-950 mt-20">
+      <div className="flex flex-col lg:flex-row-reverse gap-10 items-center mt-10">
+        <img
+          src="/MARKET.png"
+          alt="market"
+          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
+        />
+        <div className="text-center lg:text-left">
+          <h1 className="font-bold text-xl md:text-2xl text-blue-950 mt-1">
             Bundle Offerings
           </h1>
-          <p className="h-[300px] md:w-4/5 font-medium mt-6 text-xl text-blue-950">
+          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
             Enhance sales and streamline inventory with Stockmate’s Bundle
             Offering feature. Effortlessly group related products into
             attractive bundles, ensuring better value for customers while
@@ -41,23 +46,18 @@ const Features = () => {
             operations and maximize revenue effortlessly!
           </p>
         </div>
-        <img
-          src="/MARKET.png"
-          alt="market"
-          className="h-[350px] md:w-2/5 mr-20 mt-8 inset-shadow-blue-950 rounded-lg"
-        ></img>
       </div>
-      <div className="flex flex-row gap-10 ml-18">
+      <div className="flex flex-col lg:flex-row gap-10 items-center mt-10">
         <img
           src="/istockphoto.jpg"
           alt="istock"
-          className="h-[350px] md:w-2/5 m-8 inset-shadow-blue-950 rounded-lg"
+          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
         ></img>
-        <div className="flex flex-col">
-          <h1 className="font-bold text-2xl text-blue-950 mt-20">
+        <div className="text-center lg:text-left">
+          <h1 className="font-bold text-2xl text-blue-950 mt-1">
             History Made Simple
           </h1>
-          <p className="h-[300px] font-medium mt-6 mr-20 text-xl text-blue-950">
+          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
             Effortlessly track past transactions and inventory changes with
             Stockmate’s History Made Simple feature. Instantly access detailed
             records of stock movements, sales, and adjustments across multiple
@@ -68,12 +68,17 @@ const Features = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-row gap-10 ml-23">
-        <div className="flex flex-col">
-          <h1 className="font-bold text-2xl text-blue-950 mt-20">
+      <div className="flex flex-col lg:flex-row-reverse gap-10 items-center mt-10">
+        <img
+          src="/report.png"
+          alt="market"
+          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
+        ></img>
+        <div className="text-center lg:text-left">
+          <h1 className="font-bold text-xl md:text-2xl text-blue-950 mt-1">
             Reports & Analytics
           </h1>
-          <p className="h-[300px] md:w-4/5 font-medium mt-6 text-xl text-blue-950">
+          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
             Gain valuable insights into your inventory with Stockmate’s Reports
             & Analytics feature. Track sales trends, monitor stock movements,
             and analyze performance across multiple locations in real time.
@@ -83,23 +88,18 @@ const Features = () => {
             automated analytics tailored for your business success.
           </p>
         </div>
-        <img
-          src="/report.png"
-          alt="market"
-          className="h-[350px] md:w-2/5 mt-8 mr-20 inset-shadow-blue-950 rounded-lg"
-        ></img>
       </div>
-      <div className="flex flex-row gap-10 ml-18">
+      <div className="flex flex-col lg:flex-row gap-10 items-center mt-10">
         <img
           src="/email-varification.webp"
           alt="email-verification"
-          className="h-[350px] md:w-2/5 m-8 inset-shadow-blue-950 rounded-lg"
+          className="h-[250px] md:h-[350px] w-full max-w-sm md:max-w-lg rounded-lg shadow-lg"
         ></img>
-        <div className="flex flex-col">
-          <h1 className="font-bold text-2xl text-blue-950 mt-20">
+        <div className="text-center lg:text-left">
+          <h1 className="font-bold text-2xl text-blue-950 mt-1">
             Email Verification
           </h1>
-          <p className="h-[300px] md:w-4/5 font-medium mt-6 text-xl text-blue-950">
+          <p className="max-w-lg text-sm md:text-lg text-blue-950 mt-4">
             Ensure secure access and reliable communication with Stockmate’s
             Email Verification feature. Verify user emails to prevent
             unauthorized access, protect sensitive inventory data, and enhance
@@ -112,7 +112,6 @@ const Features = () => {
         </div>
       </div>
 
-      {/* Footer Section */}
       <footer className="bg-gray-800 text-white py-10 mt-20">
         <div className="container mx-auto px-6">
           {/* Company Information */}
@@ -125,6 +124,7 @@ const Features = () => {
               simplify business operations and optimize efficiency.
             </p>
           </div>
+
           {/* Quick Links */}
           <div className="flex justify-center space-x-6 mt-8 text-sm text-gray-400">
             <a href="/about" className=" hover:text-blue-500">
@@ -137,6 +137,7 @@ const Features = () => {
               Terms of Service
             </a>
           </div>
+
           {/* Social Media Links */}
           <div className="flex justify-center space-x-6 mt-6">
             {/* Facebook */}
