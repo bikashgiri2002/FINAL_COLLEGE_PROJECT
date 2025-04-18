@@ -65,21 +65,19 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-6">
           {!shop ? (
             <>
-              {["features", "resources"].map(
-                (item) => (
-                  <NavLink
-                    key={item}
-                    to={`/${item}`}
-                    className={({ isActive }) =>
-                      `hover:text-blue-500 px-3 py-2 rounded-md ${
-                        isActive ? "bg-blue-400 text-white" : ""
-                      } dark:hover:text-blue-300 dark:hover:bg-gray-700`
-                    }
-                  >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
-                  </NavLink>
-                )
-              )}
+              {["home", "features", "resources"].map((item) => (
+                <NavLink
+                  key={item}
+                  to={`/${item == "home" ? "" : item}`}
+                  className={({ isActive }) =>
+                    `hover:text-blue-500 px-3 py-2 rounded-md ${
+                      isActive ? "bg-blue-400 text-white" : ""
+                    } dark:hover:text-blue-300 dark:hover:bg-gray-700`
+                  }
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </NavLink>
+              ))}
             </>
           ) : (
             <>
