@@ -65,7 +65,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-6">
           {!shop ? (
             <>
-              {["home", "features", "resources"].map((item) => (
+              {["home", "features", "resources", "about"].map((item) => (
                 <NavLink
                   key={item}
                   to={`/${item == "home" ? "" : item}`}
