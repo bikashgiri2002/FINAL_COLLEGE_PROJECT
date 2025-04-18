@@ -1,12 +1,14 @@
 import { useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom"; // ← Add Link
+import { useNavigate, Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // ← Import icons
 import ShopContext from "../context/ShopContext";
 
 const Login = () => {
   const { loginShop } = useContext(ShopContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // ← Add state
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -38,13 +40,21 @@ const Login = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full p-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white rounded mb-3 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-600"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="relative mb-3">
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            className="w-full p-2 pr-10 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-black dark:text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-600"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <span
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute top-2.5 right-3 text-gray-500 dark:text-gray-300 cursor-pointer"
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
+        </div>
         <button
           type="submit"
           className="w-full bg-blue-500 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 text-white p-2 rounded mb-2"
