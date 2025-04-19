@@ -117,7 +117,7 @@ const Welcome = () => {
             {
               img: "/report.png",
               alt: "Report and Analytics",
-              title: "Role-Based Access Control",
+              title: "Report and Analytics",
               text: "Unlock powerful insights with comprehensive Reports & Analytics tools. Analyze trends, track performance, and make data-driven decisions to propel your business forward.",
               imgLeft: false,
             },
