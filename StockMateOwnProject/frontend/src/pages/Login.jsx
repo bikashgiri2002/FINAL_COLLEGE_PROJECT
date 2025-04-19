@@ -1,28 +1,42 @@
 import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // ← Import icons
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import ShopContext from "../context/ShopContext";
 
 const Login = () => {
   const { loginShop } = useContext(ShopContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false); // ← Add state
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
+
+    if (!email || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/shop/login",
+        `${import.meta.env.VITE_API_BASE_URL}/api/shop/login`,
         { email, password }
       );
       loginShop(response.data.shop, response.data.token);
       navigate("/dashboard");
     } catch (error) {
-      console.error(error.response?.data?.message || "Login failed");
-      alert("Login failed. Please check your credentials." + error.message);
+      setError(
+        error.response?.data?.message ||
+          "Login failed. Please check your credentials."
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -33,6 +47,13 @@ const Login = () => {
         className="bg-white dark:bg-gray-800 text-black dark:text-white p-6 shadow-md rounded w-96"
       >
         <h2 className="text-2xl font-bold text-center mb-4">Shop Login</h2>
+
+        {error && (
+          <div className="mb-4 p-2 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-200 rounded">
+            {error}
+          </div>
+        )}
+
         <input
           type="email"
           placeholder="Email"
@@ -40,6 +61,7 @@ const Login = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+
         <div className="relative mb-3">
           <input
             type={showPassword ? "text" : "password"}
@@ -55,12 +77,17 @@ const Login = () => {
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
+
         <button
           type="submit"
-          className="w-full bg-blue-500 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 text-white p-2 rounded mb-2"
+          disabled={loading}
+          className={`w-full bg-blue-500 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-700 text-white p-2 rounded mb-2 ${
+            loading ? "opacity-50 cursor-not-allowed" : ""
+          }`}
         >
-          Login
+          {loading ? "Logging in..." : "Login"}
         </button>
+
         <p className="text-sm text-center">
           New here?{" "}
           <Link

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+// Use Vite environment variable
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Inventory = () => {
   const [inventory, setInventory] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
@@ -13,7 +16,7 @@ const Inventory = () => {
     category: "",
   });
   const [isOpen, setIsOpen] = useState(false);
-  const [priceUpdates, setPriceUpdates] = useState({}); // Track new prices
+  const [priceUpdates, setPriceUpdates] = useState({});
 
   useEffect(() => {
     fetchInventory();
@@ -23,7 +26,7 @@ const Inventory = () => {
   const fetchInventory = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/inventory", {
+      const res = await axios.get(`${API_BASE_URL}/api/inventory`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setInventory(res.data);
@@ -35,7 +38,7 @@ const Inventory = () => {
   const fetchWarehouses = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/warehouse", {
+      const res = await axios.get(`${API_BASE_URL}/api/warehouse`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setWarehouses(res.data);
@@ -52,7 +55,7 @@ const Inventory = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/inventory", formData, {
+      await axios.post(`${API_BASE_URL}/api/inventory`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFormData({
@@ -72,7 +75,7 @@ const Inventory = () => {
   const handleDeleteProduct = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/inventory/${id}`, {
+      await axios.delete(`${API_BASE_URL}/api/inventory/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchInventory();
@@ -85,7 +88,7 @@ const Inventory = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/inventory/${id}`,
+        `${API_BASE_URL}/api/inventory/${id}`,
         { quantity: newQuantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -109,7 +112,7 @@ const Inventory = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.patch(
-        `http://localhost:5000/api/inventory/${id}/price`,
+        `${API_BASE_URL}/api/inventory/${id}/price`,
         { price: parseFloat(newPrice) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -141,7 +144,6 @@ const Inventory = () => {
         </button>
       </div>
 
-      {/* Add Product Form */}
       {isOpen && (
         <form onSubmit={handleAddProduct} className="mb-6 space-y-3">
           <select
@@ -212,7 +214,6 @@ const Inventory = () => {
         </form>
       )}
 
-      {/* Inventory List Grouped by Warehouse */}
       <h3 className="text-xl font-semibold mb-3">Inventory by Warehouse</h3>
 
       {groupedInventory.length === 0 ? (

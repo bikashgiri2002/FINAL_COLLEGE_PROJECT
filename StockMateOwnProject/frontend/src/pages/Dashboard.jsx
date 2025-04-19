@@ -3,6 +3,9 @@ import ShopContext from "../context/ShopContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+// Access the Vite environment variable
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Dashboard = () => {
   const { shop, logoutShop } = useContext(ShopContext);
   const navigate = useNavigate();
@@ -17,10 +20,10 @@ const Dashboard = () => {
       try {
         const token = localStorage.getItem("token");
         const [warehousesRes, inventoryRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/warehouse", {
+          axios.get(`${API_BASE_URL}/api/warehouse`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://localhost:5000/api/inventory", {
+          axios.get(`${API_BASE_URL}/api/inventory`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -113,7 +116,9 @@ const Dashboard = () => {
                 </p>
                 <p className="text-sm mt-1 text-gray-700 dark:text-gray-400">
                   Capacity:{" "}
-                  <span className="font-medium">{warehouse.capacity} units</span>
+                  <span className="font-medium">
+                    {warehouse.capacity} units
+                  </span>
                 </p>
               </div>
 
@@ -135,7 +140,10 @@ const Dashboard = () => {
                     </thead>
                     <tbody>
                       {warehouseInventory.map((item) => (
-                        <tr key={item._id} className="border-t dark:border-gray-600">
+                        <tr
+                          key={item._id}
+                          className="border-t dark:border-gray-600"
+                        >
                           <td className="px-3 py-2">{item.productName}</td>
                           <td className="px-3 py-2">{item.sku}</td>
                           <td className="px-3 py-2">{item.quantity}</td>

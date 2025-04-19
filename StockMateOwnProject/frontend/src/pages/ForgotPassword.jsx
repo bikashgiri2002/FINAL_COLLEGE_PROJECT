@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
+// Use Vite env variable for the base API URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState(null);
@@ -15,7 +18,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/shop/forgot-password",
+        `${API_BASE_URL}/api/shop/forgot-password`,
         { email }
       );
       setMessage(response.data.message);
