@@ -155,18 +155,16 @@ const Navbar = () => {
         <div className="md:hidden flex flex-col mt-4 space-y-2">
           {!shop ? (
             <>
-              {["features", "solutions", "integrations", "resources"].map(
-                (item) => (
-                  <NavLink
-                    key={item}
-                    to={`/${item}`}
-                    className="block px-4 py-2 rounded-md hover:bg-blue-200 dark:hover:bg-gray-700"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
-                  </NavLink>
-                )
-              )}
+              {["home", "features", "resources", "about"].map((item) => (
+                <NavLink
+                  key={item}
+                  to={`/${item}`}
+                  className="block px-4 py-2 rounded-md hover:bg-blue-200 dark:hover:bg-gray-700"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </NavLink>
+              ))}
               <NavLink
                 to="/login"
                 className="block bg-blue-400 text-white px-4 py-2 rounded-md mx-4 dark:bg-blue-600 dark:hover:bg-blue-700"
