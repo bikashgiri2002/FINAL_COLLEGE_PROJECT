@@ -115,18 +115,11 @@ const Welcome = () => {
               imgLeft: true,
             },
             {
-              img: "/Role-Based-Access-Control.jpeg",
-              alt: "Role Based Access",
-              title: "Role-Based Access Control",
-              text: "Implement robust Role-Based Access Control to ensure secure and efficient management of user permissions. Assign distinct roles like Admin, Manager, and Employee to streamline access and safeguard your operations.",
-              imgLeft: false,
-            },
-            {
               img: "/report.png",
-              alt: "Reports",
-              title: "Reports & Analytics",
+              alt: "Report and Analytics",
+              title: "Role-Based Access Control",
               text: "Unlock powerful insights with comprehensive Reports & Analytics tools. Analyze trends, track performance, and make data-driven decisions to propel your business forward.",
-              imgLeft: true,
+              imgLeft: false,
             },
           ].map((feature, idx) => (
             <div
