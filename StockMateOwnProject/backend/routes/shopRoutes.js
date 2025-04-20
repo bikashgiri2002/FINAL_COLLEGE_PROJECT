@@ -112,7 +112,7 @@ router.post("/forgot-password", async (req, res) => {
     shop.resetPasswordExpires = Date.now() + 1000 * 60 * 15; // 15 mins
     await shop.save();
 
-    const resetURL = `http://localhost:5173/reset-password/${resetToken}`;
+    const resetURL = `https://stokematefrontend.onrender.com/reset-password/${resetToken}`;
     await sendPasswordResetEmail(shop.email, shop.name, resetURL);
 
     res.json({ message: "Reset password link sent to email." });
