@@ -167,14 +167,14 @@ const Navbar = () => {
               ))}
               <NavLink
                 to="/login"
-                className="block bg-blue-400 text-white px-4 py-2 rounded-md mx-4 dark:bg-blue-600 dark:hover:bg-blue-700 w-20"
+                className="block bg-blue-400 text-white px-4 py-2 rounded-md mx-4 dark:bg-blue-600 dark:hover:bg-blue-700 w-25"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Login
               </NavLink>
               <NavLink
                 to="/register"
-                className="block bg-blue-400 text-white px-4 py-2 rounded-md mx-4 dark:bg-blue-600 dark:hover:bg-blue-700 w-20"
+                className="block bg-blue-400 text-white px-4 py-2 rounded-md mx-4 dark:bg-blue-600 dark:hover:bg-blue-700 w-25"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Register
@@ -197,8 +197,8 @@ const Navbar = () => {
                   handleLogout();
                   setIsMobileMenuOpen(false);
                 }}
-                className="bg-red-500 text-white px-4 py-2 mx-4 rounded-md hover:bg-red-700"
-              >
+                className="bg-red-500 text-white px-4 py-2 mx-4 rounded-md hover:bg-red-700 w-25"
+             >
                 Logout
               </button>
             </>
@@ -206,7 +206,7 @@ const Navbar = () => {
 
           {/* Mobile Theme Toggle */}
           <div className="flex items-center px-4 py-2">
-            <span className="mr-2">Dark Mode</span>
+            <span className="mr-2">{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
             <button
               onClick={toggleTheme}
               className="text-2xl p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
