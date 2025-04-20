@@ -10,7 +10,10 @@ dotenv.config();
 const app = express();
 
 // Enable CORS for all origins
-app.use(cors());
+app.use(cors({
+  origin: 'https://stokematefrontend.onrender.com',
+  credentials: true,
+}));
 app.use(express.json());
 
 app.use("/api/shop", shopRoutes);
