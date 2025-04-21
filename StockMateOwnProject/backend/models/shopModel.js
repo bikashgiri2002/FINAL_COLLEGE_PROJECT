@@ -11,6 +11,11 @@ const shopSchema = new mongoose.Schema(
     // For password reset
     resetPasswordToken: { type: String },
     resetPasswordExpires: { type: Date },
+
+    // For email verification
+    isVerified: { type: Boolean, default: false },
+    otp: String,
+    otpExpires: Date,
   },
   { timestamps: true }
 );

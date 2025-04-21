@@ -2,12 +2,13 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
-import validator from "validator"; // add this at the top
+import validator from "validator";
 import Shop from "../models/shopModel.js";
 import protect from "../middleware/authMiddleware.js";
 import {
   sendConfirmationEmail,
   sendPasswordResetEmail,
+  sendOTPEmail,
 } from "../utils/emailService.js";
 
 const router = express.Router();
@@ -18,41 +19,77 @@ router.post("/register", async (req, res) => {
   try {
     const { name, email, password, phone, address } = req.body;
 
+    // Validate email
     if (!validator.isEmail(email)) {
       return res.status(400).json({ message: "Invalid email address" });
     }
 
+    // Check for existing shop
     const existingShop = await Shop.findOne({ email });
     if (existingShop) {
       return res.status(400).json({ message: "Email already exists" });
     }
 
+    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // Generate 6-digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+
+    // Create the shop
     const shop = await Shop.create({
       name,
       email,
       password: hashedPassword,
       phone,
       address,
+      otp,
+      otpExpires,
+      isVerified: false,
     });
 
-    try {
-      await sendConfirmationEmail(email, name);
-      return res.status(201).json({
-        message: "Shop registered and confirmation email sent.",
-      });
-    } catch (emailError) {
-      console.warn("⚠️ Failed to send email:", emailError.message);
-      return res.status(201).json({
-        message:
-          "Shop registered successfully, but failed to send confirmation email.",
-        emailError: emailError.message,
-      });
-    }
+    // Send OTP via email
+    await sendOTPEmail(email, name, otp);
+
+    return res.status(201).json({
+      message: "OTP sent to email. Please verify to complete registration.",
+    });
   } catch (error) {
     console.error("Registration Error:", error);
     res.status(500).json({ message: "Server Error", error });
+  }
+});
+// Verify OTP
+router.post("/verify-otp", async (req, res) => {
+  const { email, otp } = req.body;
+
+  try {
+    const shop = await Shop.findOne({ email });
+
+    if (!shop) {
+      return res.status(400).json({ message: "Invalid email" });
+    }
+
+    if (shop.isVerified) {
+      return res.status(400).json({ message: "Shop already verified" });
+    }
+
+    if (shop.otp !== otp || Date.now() > shop.otpExpires) {
+      return res.status(400).json({ message: "Invalid or expired OTP" });
+    }
+
+    // Mark as verified and remove OTP
+    shop.isVerified = true;
+    shop.otp = undefined;
+    shop.otpExpires = undefined;
+    await shop.save();
+    await sendConfirmationEmail(shop.email, shop.name);
+
+    res.status(200).json({ message: "Shop verified successfully" });
+  } catch (error) {
+    console.error("OTP Verification Error:", error);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
@@ -62,7 +99,11 @@ router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     const shop = await Shop.findOne({ email });
 
-    if (!shop || !(await bcrypt.compare(password, shop.password))) {
+    if (
+      !shop ||
+      !(await bcrypt.compare(password, shop.password)) ||
+      !shop.isVerified
+    ) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 

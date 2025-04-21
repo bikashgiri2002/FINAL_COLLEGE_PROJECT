@@ -13,7 +13,8 @@ export default function ResetPasswordPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState({ text: null, type: null }); // type: 'success' or 'error'
+  const [message, setMessage] = useState({ text: null, type: null });
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,6 +36,12 @@ export default function ResetPasswordPage() {
     if (formData.newPassword !== formData.confirmPassword) {
       return setMessage({
         text: "Passwords do not match",
+        type: "error",
+      });
+    }
+    if (!passwordRegex.test(formData.newPassword)) {
+      return setMessage({
+        text: "Password must be at least 6 characters long and contain both letters and numbers",
         type: "error",
       });
     }

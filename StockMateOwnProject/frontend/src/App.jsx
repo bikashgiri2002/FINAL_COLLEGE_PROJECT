@@ -15,6 +15,7 @@ import Resources from "./pages/Resources";
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import VerifyOtp from "./pages/VerifyOtp";
 
 function App() {
   const { shop } = useContext(ShopContext);
@@ -46,6 +47,10 @@ function App() {
           <Route
             path="/forgot-password"
             element={!shop ? <ForgotPassword /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/verify-otp/:email"
+            element={!shop ? <VerifyOtp /> : <Navigate to="/" />}
           />
           <Route path="/features" element={<Features />} />
           <Route path="/resources" element={<Resources />} />

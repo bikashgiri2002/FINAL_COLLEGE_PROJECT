@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Send confirmation email
+// 🎉 Send welcome/confirmation email
 export const sendConfirmationEmail = async (to, name) => {
   const htmlContent = `
     <div style="font-family: Arial, sans-serif; color: #333;">
@@ -27,14 +27,13 @@ export const sendConfirmationEmail = async (to, name) => {
       subject: "🎉 Welcome to StockMate - Your Shop is Registered!",
       html: htmlContent,
     });
-
   } catch (error) {
     console.error("❌ Failed to send confirmation email:", error.message);
-    throw error; // Important: rethrow to handle in your route
+    throw error;
   }
 };
 
-// Optionally export reset password email sender
+// 🔐 Send password reset email
 export const sendPasswordResetEmail = async (to, name, resetURL) => {
   const htmlContent = `
     <div style="font-family: Arial, sans-serif; color: #333;">
@@ -54,9 +53,34 @@ export const sendPasswordResetEmail = async (to, name, resetURL) => {
       subject: "🔐 Reset Your Password - StockMate",
       html: htmlContent,
     });
-
   } catch (error) {
     console.error("❌ Failed to send password reset email:", error.message);
+    throw error;
+  }
+};
+
+// 🧾 Send OTP verification email
+export const sendOTPEmail = async (to, name, otp) => {
+  const htmlContent = `
+    <div style="font-family: Arial, sans-serif; color: #333;">
+      <h2>Verify Your Shop, ${name}!</h2>
+      <p>Your One-Time Password (OTP) for verifying your shop registration on <strong>StockMate</strong> is:</p>
+      <h1 style="color: #28a745;">${otp}</h1>
+      <p>This OTP is valid for 10 minutes. Please do not share it with anyone.</p>
+      <p>If you didn’t request this, please ignore this email.</p>
+      <p style="margin-top: 20px;">Best regards,<br>The StockMate Team</p>
+    </div>
+  `;
+
+  try {
+    await transporter.sendMail({
+      from: `"StockMate" <${process.env.EMAIL_USER}>`,
+      to,
+      subject: "🔑 Your OTP for Shop Verification - StockMate",
+      html: htmlContent,
+    });
+  } catch (error) {
+    console.error("❌ Failed to send OTP email:", error.message);
     throw error;
   }
 };

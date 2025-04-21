@@ -11,6 +11,7 @@ const Register = () => {
     confirmPassword: "",
     phone: "",
     address: "",
+    countryCode: "+91",
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -21,39 +22,55 @@ const Register = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // Clear error when user starts typing
     if (error) setError("");
   };
 
   const validateForm = () => {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    const phoneRegex = /^[0-9]{10}$/;
+
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
       return false;
     }
-    if (formData.password.length < 6) {
-      setError("Password must be at least 6 characters");
+
+    if (!passwordRegex.test(formData.password)) {
+      setError(
+        "Password must be at least 6 characters long and contain both letters and numbers"
+      );
       return false;
     }
+
     if (!formData.email.includes("@")) {
       setError("Please enter a valid email address");
       return false;
     }
+
+    if (!phoneRegex.test(formData.phone)) {
+      setError(
+        "Please enter a valid phone number (only digits, 10 characters)"
+      );
+      return false;
+    }
+
     return true;
   };
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     setLoading(true);
     try {
-      const { confirmPassword, ...dataToSend } = formData;
+      const { confirmPassword, phone, ...dataToSend } = formData;
+      const combinedPhone = `${formData.countryCode}${formData.phone}`;
+
       await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/shop/register`,
-        dataToSend
+        { ...dataToSend, phone: combinedPhone }
       );
-      navigate("/login", { state: { registrationSuccess: true } });
+
+      navigate(`/verify-otp/${formData.email}`, { state: { registrationSuccess: false } });
     } catch (error) {
       setError(
         error.response?.data?.message ||
@@ -63,6 +80,13 @@ const Register = () => {
       setLoading(false);
     }
   };
+
+  const inputClass = (fieldType) =>
+    `w-full px-4 py-2 border ${
+      error.toLowerCase().includes(fieldType)
+        ? "border-red-500"
+        : "border-gray-300 dark:border-gray-600"
+    } rounded-md bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400`;
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300 p-4">
@@ -88,7 +112,7 @@ const Register = () => {
               placeholder="Enter shop name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400"
+              className={inputClass("name")}
               required
             />
           </div>
@@ -104,7 +128,7 @@ const Register = () => {
               placeholder="Enter email address"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400"
+              className={inputClass("email")}
               required
             />
           </div>
@@ -124,7 +148,7 @@ const Register = () => {
                 placeholder="Enter password (min 6 characters)"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full px-4 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400"
+                className={inputClass("password") + " pr-10"}
                 required
                 minLength="6"
               />
@@ -153,11 +177,7 @@ const Register = () => {
                 placeholder="Confirm your password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 pr-10 border ${
-                  error.includes("Passwords")
-                    ? "border-red-500"
-                    : "border-gray-300 dark:border-gray-600"
-                } rounded-md bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400`}
+                className={inputClass("password") + " pr-10"}
                 required
               />
               <button
@@ -174,16 +194,30 @@ const Register = () => {
             <label htmlFor="phone" className="block text-sm font-medium mb-1">
               Phone Number
             </label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              placeholder="Enter phone number"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400"
-              required
-            />
+            <div className="flex gap-2">
+              <select
+                name="countryCode"
+                value={formData.countryCode}
+                onChange={handleChange}
+                className="px-2 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400"
+              >
+                <option value="+91">+91 (India)</option>
+                <option value="+1">+1 (USA)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+61">+61 (Australia)</option>
+                <option value="+81">+81 (Japan)</option>
+              </select>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="Enter phone number"
+                value={formData.phone}
+                onChange={handleChange}
+                className={inputClass("phone")}
+                required
+              />
+            </div>
           </div>
 
           <div>
@@ -196,7 +230,7 @@ const Register = () => {
               placeholder="Enter shop address"
               value={formData.address}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400"
+              className={inputClass("address")}
               required
             />
           </div>
