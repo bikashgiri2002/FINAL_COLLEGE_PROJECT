@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // Use Vite env variable for the base API URL
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -9,6 +10,7 @@ const ForgotPassword = () => {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +24,7 @@ const ForgotPassword = () => {
         { email }
       );
       setMessage(response.data.message);
+      setTimeout(() => navigate("/login"), 3000);
     } catch (err) {
       setError(
         err.response?.data?.message || "Something went wrong. Please try again."
