@@ -60,6 +60,7 @@ router.post("/register", async (req, res) => {
     res.status(500).json({ message: "Server Error", error });
   }
 });
+
 // Verify OTP
 router.post("/verify-otp", async (req, res) => {
   const { email, otp } = req.body;
@@ -89,6 +90,42 @@ router.post("/verify-otp", async (req, res) => {
     res.status(200).json({ message: "Shop verified successfully" });
   } catch (error) {
     console.error("OTP Verification Error:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+// Resend OTP
+router.post("/resend-otp", async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const shop = await Shop.findOne({ email });
+
+    if (!shop) {
+      return res.status(400).json({ message: "Invalid email" });
+    }
+
+    if (shop.isVerified) {
+      return res.status(400).json({ message: "Shop already verified" });
+    }
+
+    // Generate new 6-digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+
+    // Update shop with new OTP
+    shop.otp = otp;
+    shop.otpExpires = otpExpires;
+    await shop.save();
+
+    // Send new OTP via email
+    await sendOTPEmail(email, shop.name, otp);
+
+    return res.status(200).json({
+      message: "New OTP sent to email. Please verify to complete registration.",
+    });
+  } catch (error) {
+    console.error("Resend OTP Error:", error);
     res.status(500).json({ message: "Server error" });
   }
 });

@@ -9,11 +9,14 @@ const VerifyOtp = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState("");
 
   const handleVerify = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
+    setResendSuccess("");
 
     if (!formData.otp || formData.otp.length !== 6) {
       setError("OTP must be 6 digits");
@@ -30,14 +33,30 @@ const VerifyOtp = () => {
         }
       );
       setSuccess(response.data.message);
-      setTimeout(
-        () => navigate(`/login`, { state: { registrationSuccess: true } }),
-        1500
-      );
+      setTimeout(() => navigate(`/login`, { state: { registrationSuccess: true } }), 1500);
     } catch (error) {
       setError(error.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleResendOtp = async () => {
+    setError("");
+    setSuccess("");
+    setResendSuccess("");
+    setResendLoading(true);
+
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/api/shop/resend-otp`,
+        { email }
+      );
+      setResendSuccess(response.data.message);
+    } catch (error) {
+      setError(error.response?.data?.message || "Failed to resend OTP");
+    } finally {
+      setResendLoading(false);
     }
   };
 
@@ -55,6 +74,12 @@ const VerifyOtp = () => {
         {success && (
           <div className="mb-4 p-3 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-200 rounded-md text-sm">
             {success}
+          </div>
+        )}
+
+        {resendSuccess && (
+          <div className="mb-4 p-3 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 rounded-md text-sm">
+            {resendSuccess}
           </div>
         )}
 
@@ -99,6 +124,17 @@ const VerifyOtp = () => {
           >
             {loading ? "Verifying..." : "Verify OTP"}
           </button>
+
+          <div className="text-center mt-4">
+            <button
+              type="button"
+              onClick={handleResendOtp}
+              disabled={resendLoading}
+              className="text-sm text-blue-600 dark:text-blue-400 hover:underline focus:outline-none"
+            >
+              {resendLoading ? "Sending..." : "Didn't receive OTP? Resend"}
+            </button>
+          </div>
         </form>
       </div>
     </div>
